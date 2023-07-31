@@ -1,0 +1,235 @@
+<div class="content-wrapper">
+    <?php
+    $form = $this->form;
+    $form->prepare();
+
+    $form->get('goodsNumber')->setAttributes([
+        'placeholder' => $this->translate('商品编码')
+    ]);
+
+    $form->get('goodsName')->setAttributes([
+        'placeholder' => $this->translate('商品名称')
+    ]);
+
+    $form->get('goodsBarcode')->setAttributes([
+        'placeholder' => $this->translate('商品条形码')
+    ]);
+
+    $form->get('goodsRecommendPrice')->setAttributes([
+        'placeholder' => $this->translate('建议售价'),
+        'value' => $this->erpCurrencyFormat($form->get('goodsRecommendPrice')->getValue(), '')
+    ]);
+
+    $form->get('goodsSpec')->setAttributes([
+        'placeholder' => $this->translate('商品规格')
+    ]);
+
+    $form->get('goodsInfo')->setAttributes([
+        'placeholder' => $this->translate('商品备注信息')
+    ]);
+
+    ?>
+    <?php echo $this->form()->openTag($form); ?>
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('goods');?>" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> <?php echo $this->translate('返回商品列表'); ?></a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> <?php echo $this->translate('保存商品'); ?></button>
+            <?php echo (isset($goods) ? $this->HelpUrl('goodsEdit') : $this->HelpUrl('goodsAdd')); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab"><?php echo $this->translate('基本设置'); ?></a></li>
+                            <li><a href="#tab_2" data-toggle="tab"><?php echo $this->translate('扩展信息'); ?></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <?php echo $this->formElementErrors($form->get('dberp_csrf'), ['class'=>'error-message']); ?>
+                            <div class="tab-pane active" id="tab_1">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('商品名称'); ?><span class="must_add_value">*</span>
+                                                <?php echo $this->formElement($form->get('goodsName')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsName'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('商品编码'); ?><span class="must_add_value">*</span>
+                                                <?php echo $this->formElement($form->get('goodsNumber')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsNumber'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('商品条形码'); ?>
+                                                <?php echo $this->formElement($form->get('goodsBarcode')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsBarcode'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('商品分类'); ?><span class="must_add_value">*</span>
+                                                <?php echo $this->formElement($form->get('goodsCategoryId')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsCategoryId'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('商品单位'); ?><span class="must_add_value">*</span>
+                                                <?php echo $this->formElement($form->get('unitId')); ?>
+                                                <?php echo $this->formElementErrors($form->get('unitId'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('商品品牌'); ?>
+                                                <?php echo $this->formElement($form->get('brandId')); ?>
+                                                <?php echo $this->formElementErrors($form->get('brandId'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('建议售价'); ?><span class="must_add_value">*</span>
+                                                <?php echo $this->formElement($form->get('goodsRecommendPrice')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsRecommendPrice'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('商品库存'); ?>
+                                                <?php echo $this->formElement($form->get('goodsStock')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsStock'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('商品规格'); ?>
+                                                <?php echo $this->formElement($form->get('goodsSpec')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsSpec'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-4 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('排序'); ?>
+                                                <?php echo $this->formElement($form->get('goodsSort')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsSort'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 form-group">
+                                            <div class="col-sm-12">
+                                                <?php echo $this->translate('备注'); ?>
+                                                <?php echo $this->formElement($form->get('goodsInfo')); ?>
+                                                <?php echo $this->formElementErrors($form->get('goodsInfo'), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_2">
+                                <div class="box-body">
+                                    <?php
+                                    $form->get('customTitle1')->setAttributes([
+                                        'placeholder' => $this->translate('标题 如 颜色')
+                                    ]);
+
+                                    $form->get('customContent1')->setAttributes([
+                                        'placeholder' => $this->translate('内容 如 黑色')
+                                    ]);
+                                    for($i=1; $i<=10; $i++) { ?>
+                                        <div class="form-group">
+                                            <div class="col-sm-2">
+                                                <?php echo $this->formElement($form->get('customTitle'.$i)); ?>
+                                                <?php echo $this->formElementErrors($form->get('customTitle'.$i), ['class'=>'error-message']); ?>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <?php echo $this->formElement($form->get('customContent'.$i)); ?>
+                                                <?php echo $this->formElementErrors($form->get('customContent'.$i), ['class'=>'error-message']); ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                    <div class="box-footer">
+                        <?php echo $this->formElement($form->get('dberp_csrf')); ?>
+                        <button type="submit" class="btn btn-primary col-md-offset-4"><i class="fa fa-check"></i> <?php echo $this->translate('保存商品'); ?></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>
+<?php echo $this->form()->closeTag(); ?>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#<?php echo $form->getName(); ?>").validate({
+            rules: {
+                goodsName: {
+                    required: true
+                },
+                goodsNumber: {
+                    required: true
+                },
+                goodsCategoryId: {
+                    required: true,
+                    min: 1
+                },
+                unitId: {
+                    required: true,
+                    min: 1
+                },
+                goodsSort: {
+                    number: true,
+                    min: 1
+                }
+            },
+            messages: {
+                goodsName: {
+                    required: "<?php echo $this->translate('商品名称不能为空！'); ?>"
+                },
+                goodsNumber: {
+                    required: "<?php echo $this->translate('商品编码不能为空！'); ?>"
+                },
+                goodsCategoryId: {
+                    required: "<?php echo $this->translate('请选择商品分类！'); ?>",
+                    min: "<?php echo $this->translate('请选择商品分类！'); ?>"
+                },
+                unitId: {
+                    required: "<?php echo $this->translate('请选择商品单位！'); ?>",
+                    min: "<?php echo $this->translate('请选择商品单位！'); ?>"
+                },
+                goodsSort: {
+                    number: "<?php echo $this->translate('排序必须为数字！'); ?>",
+                    min: "<?php echo $this->translate('排序最小为1！'); ?>"
+                }
+            }
+        });
+    });
+</script>

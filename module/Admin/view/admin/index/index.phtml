@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DBERP <?php echo $this->translate('进销存') . $this->translate('后台登录'); ?></title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" href="<?php echo $this->basePath('favicon.ico'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('css/bootstrap/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('css/font-awesome/css/font-awesome.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('css/Ionicons/css/ionicons.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('css/admin/css/AdminLTE.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('css/admin/css/stylesheet.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('js/plugins/iCheck/square/blue.css'); ?>">
+
+    <!--[if lt IE 9]>
+    <script src="<?php echo $this->basePath('js/html5shiv.min.js'); ?>"></script>
+    <script src="<?php echo $this->basePath('js/respond.min.js'); ?>"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <b>DBE</b>RP <?php echo $this->translate('进销存'); ?>
+    </div>
+
+    <div class="login-box-body">
+        <p class="login-box-msg"><?php echo $this->translate('输入账号和密码进行登录'); ?></p>
+        <?php if(isset($this->loginError)) { ?>
+            <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="icon fa fa-warning"></i><?php echo $this->translate('账号或密码错误'); ?>
+            </div>
+        <?php } ?>
+        <?php
+        $form = $this->form;
+        $form->prepare();
+
+        $form->get('admin_name')->setAttributes([
+                'placeholder' => $this->translate('账号')
+        ]);
+        $form->get('admin_passwd')->setAttributes([
+            'placeholder' => $this->translate('密码')
+        ]);
+        $form->get('login_captcha')->setAttributes([
+            'placeholder' => $this->translate('输入上面的验证码')
+        ]);
+        $form->get('submit-login')->setAttributes([
+            'value' => $this->translate('登 录')
+        ]);
+        $form->prepare();
+        ?>
+
+        <?php echo $this->form()->openTag($form); ?>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </div>
+                    <?php echo $this->formElement($form->get('admin_name')); ?>
+                    <?php echo $this->formElementErrors($form->get('admin_name'), ['class'=>'error-message']); ?>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </div>
+                    <?php echo $this->formElement($form->get('admin_passwd')); ?>
+                    <?php echo $this->formElementErrors($form->get('admin_passwd'), ['class'=>'error-message']); ?>
+                </div>
+            </div>
+            <div class="form-group">
+                <?php echo $this->formElement($form->get('login_captcha')); ?>
+                <?php echo $this->formElementErrors($form->get('login_captcha'), ['class'=>'error-message']); ?>
+                <?php echo $this->formElement($form->get('login_csrf')); ?>
+                <?php echo $this->formElementErrors($form->get('login_csrf'), ['class'=>'error-message']); ?>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <?php echo $this->formElement($form->get('submit-login')); ?>
+                </div>
+                <div class="col-xs-12 text-center" style="margin-top: 15px;">
+                    Copyright © <a href="https://www.dberp.net/" target="_blank">北京珑大钜商科技有限公司</a> 版权所有
+                    <?php if ($this->adminHelper()->erp('website_icp')) echo '<br><a href="https://beian.miit.gov.cn/" target="_blank">'.$this->adminHelper()->erp('website_icp').'</a>'; ?>
+                </div>
+            </div>
+        <?php echo $this->form()->closeTag(); ?>
+
+    </div>
+
+</div>
+
+<script src="<?php echo $this->basePath('js/jquery.min.js'); ?>"></script>
+<script src="<?php echo $this->basePath('css/bootstrap/js/bootstrap.min.js'); ?>"></script>
+<script src="<?php echo $this->basePath('js/plugins/iCheck/icheck.min.js'); ?>"></script>
+
+<script src="<?php echo $this->basePath('js/plugins/jquery-validation/jquery.validate.js'); ?>"></script>
+<script src="<?php echo $this->basePath('js/plugins/jquery-validation/additional-methods.js'); ?>" ></script>
+<script src="<?php echo $this->basePath('js/plugins/layer/layer.js'); ?>" ></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#admin-login").validate({
+            submitHandler: function(form) {
+                if(!$.trim($('#admin_name').val())) {
+                    layer.msg('<?php echo $this->translate('请输入账号'); ?>');
+                    $('#admin_name').focus();
+                    return false;
+                }
+                if(!$.trim($('#admin_passwd').val())) {
+                    layer.msg('<?php echo $this->translate('请输入密码'); ?>');
+                    $('#admin_passwd').focus();
+                    return false;
+                }
+                if(!$.trim($('#login_captcha').val())) {
+                    layer.msg('<?php echo $this->translate('请输入验证码'); ?>');
+                    $('#login_captcha').focus();
+                    return false;
+                }
+                form.submit();
+            }
+        });
+
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%'
+        });
+    });
+</script>
+</body>
+</html>

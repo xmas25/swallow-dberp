@@ -1,0 +1,121 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('customer', ['action'=> 'add']);?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> <?php echo $this->translate('添加客户'); ?></a>
+            <?php echo $this->HelpUrl('customerList'); ?>
+        </h1>
+
+    </section>
+
+    <section class="content">
+        <?php echo $this->partial('layout/messages'); ?>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box erp-box">
+
+                    <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr class="erp-bg-thead">
+                                    <th width="2%"><input type="checkbox" class="minimal select-all-checkbox"></th>
+                                    <th>ID</th>
+                                    <th><?php echo $this->translate('客户名称'); ?></th>
+                                    <th><?php echo $this->translate('客户编码'); ?></th>
+                                    <th><?php echo $this->translate('客户分类'); ?></th>
+                                    <th width="8%"><?php echo $this->translate('排序'); ?></th>
+                                    <th width="18%"><?php echo $this->translate('操作'); ?></th>
+                                </tr>
+                                <?php
+                                $sForm = $this->searchForm;
+                                $sForm->prepare();
+                                ?>
+                                <?php echo $this->form()->openTag($sForm); ?>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <p>
+                                            <?php echo $this->formElement($sForm->get('start_id')); ?>
+                                        </p>
+                                        <div>
+                                            <?php echo $this->formElement($sForm->get('end_id')); ?>
+                                        </div>
+                                        <?php echo $this->formElementErrors($sForm->get('start_id'), ['class'=>'error-message']);?>
+                                        <?php echo $this->formElementErrors($sForm->get('end_id'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('customer_name')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('customer_name'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('customer_code')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('customer_code'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('customer_category_id')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('customer_category_id'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i></button>
+                                        <?php if(!empty(array_filter($sForm->getData()))) { ?>
+                                            <a href="<?php echo $this->url('customer');?>" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></a>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                                <?php echo $this->form()->closeTag(); ?>
+                                </thead>
+
+                                <form method="post" action="<?php echo $this->url('customer', ['action' => 'updateAll']);?>" name="edit-all-form" id="edit-all-form">
+                                <?php if($this->customerList) foreach ($this->customerList as $customer) { ?>
+                                    <tr>
+                                        <td><input  name="select_id[]" value="<?php echo $customer->getCustomerId(); ?>" type="checkbox" class="minimal"></td>
+                                        <td><?php echo $customer->getCustomerId(); ?></td>
+                                        <td><?php echo $this->escapeHtml($customer->getCustomerName()); ?></td>
+                                        <td><?php echo $this->escapeHtml($customer->getCustomerCode()); ?></td>
+                                        <td><?php echo $this->escapeHtml($customer->getCustomerCategory()->getCustomerCategoryName()); ?></td>
+                                        <td><input type="text" name="customer_sort[<?php echo $customer->getCustomerId(); ?>]" value="<?php echo $customer->getCustomerSort(); ?>" class="form-control input-sm"></td>
+                                        <td>
+                                            <a href="<?php echo $this->url('customer',
+                                                ['action'=>'edit', 'id'=>$customer->getCustomerId()]); ?>"
+                                               class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> <?php echo $this->translate('编辑'); ?>
+                                            </a>
+
+                                            <a href="javascript:;" onclick="deleteConfirm('<?php echo $this->translate('您确实要删除该客户吗？'); ?>', '<?php echo $this->url('customer', ['action'=>'delete', 'id'=>$customer->getCustomerId()], ['query' => ['qToken' => $this->common()->getCsrfValue()]]); ?>');" class="btn btn-xs btn-danger">
+                                                <i class="fa fa-trash"></i> <?php echo $this->translate('删除'); ?>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="7">
+                                            <input type="checkbox" class="minimal select-all-checkbox"> <?php echo $this->translate('全选'); ?>
+                                            <select name="editAllState" class="form-control input-sm" style="width: 120px;display: inline;">
+                                                <option value=""><?php echo $this->translate('选择状态'); ?></option>
+                                                <option value="sort"><?php echo $this->translate('更新排序'); ?></option>
+                                            </select>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> <?php echo $this->translate('更新'); ?></button>
+
+                                            <?php echo $this->paginationControl($this->customerList,
+                                                'Sliding',
+                                                'layout/page',
+                                                ['route' => 'customer']); ?>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                </form>
+                            </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</div>

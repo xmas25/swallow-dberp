@@ -1,0 +1,143 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('p-order', ['action'=> 'add']);?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> <?php echo $this->translate('添加采购订单'); ?></a>
+            <?php echo $this->HelpUrl('pOrderList'); ?>
+        </h1>
+
+    </section>
+
+    <section class="content">
+        <?php echo $this->partial('layout/messages'); ?>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box erp-box">
+
+                    <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr class="erp-bg-thead">
+                                    <th width="10%"><?php echo $this->translate('采购单号'); ?>-<?php echo $this->translate('订单数：').$this->orderList->getTotalItemCount(); ?></th>
+                                    <th width="12%"><?php echo $this->translate('供应商'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('联系人'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('联系电话'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('付款方式'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('采购金额'); ?></th>
+                                    <th width="6%"><?php echo $this->translate('状态'); ?></th>
+                                    <th width="6%"><?php echo $this->translate('退货'); ?></th>
+                                    <th width="15%"><?php echo $this->translate('操作'); ?></th>
+                                </tr>
+                                <?php
+                                $sForm = $this->searchForm;
+                                $sForm->prepare();
+                                $sForm->get('p_order_state')->setEmptyOption('选择');
+                                $sForm->get('return_state')->setEmptyOption('选择');
+                                ?>
+                                <?php echo $this->form()->openTag($sForm); ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('p_order_sn')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('p_order_sn'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('supplier_id')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('supplier_id'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('supplier_contacts')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('supplier_contacts'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('supplier_phone')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('supplier_phone'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('payment_code')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('payment_code'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <?php echo $this->formElement($sForm->get('start_amount')); ?>
+                                        </p>
+                                        <div>
+                                            <?php echo $this->formElement($sForm->get('end_amount')); ?>
+                                        </div>
+                                        <?php echo $this->formElementErrors($sForm->get('start_amount'), ['class'=>'error-message']);?>
+                                        <?php echo $this->formElementErrors($sForm->get('end_amount'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('p_order_state')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('p_order_state'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <?php echo $this->formElement($sForm->get('return_state')); ?>
+                                        <?php echo $this->formElementErrors($sForm->get('return_state'), ['class'=>'error-message']);?>
+                                    </td>
+                                    <td>
+                                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i></button>
+                                        <?php
+                                        $formData = $sForm->getData();
+                                        if(!empty(array_filter($formData))
+                                            || $formData['p_order_state'] != ''
+                                            || $formData['return_state'] != '' ) { ?>
+                                            <a href="<?php echo $this->url('p-order');?>" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></a>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                                <?php echo $this->form()->closeTag(); ?>
+                                </thead>
+
+                                <?php if($this->orderList) foreach ($this->orderList as $order) { ?>
+                                    <tr>
+                                        <td><?php echo $this->escapeHtml($order->getPorderSn()); ?></td>
+                                        <td><?php echo $this->escapeHtml($order->getOneSupplier()->getSupplierName()); ?></td>
+                                        <td><?php echo $this->escapeHtml($order->getSupplierContacts()); ?></td>
+                                        <td><?php echo $this->escapeHtml($order->getSupplierPhone()); ?></td>
+                                        <td><?php echo $this->PurchaseHelper()->orderPayment($order->getPaymentCode()); ?></td>
+                                        <td><?php echo $this->erpCurrencyFormat($order->getPOrderAmount());?></td>
+                                        <td><?php echo $this->PurchaseHelper()->orderState($order->getPOrderState(), 2); ?></td>
+                                        <td><?php echo ($order->getReturnState() == 1 ? '<b class="text-danger">'.$this->translate('有').'</b>' : $this->translate('无')); ?></td>
+                                        <td>
+                                            <?php if($order->getPOrderState() == 0) { ?>
+                                                <a href="<?php echo $this->url('p-order',
+                                                    ['action'=>'edit', 'id'=>$order->getPOrderId()]); ?>"
+                                                   class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> <?php echo $this->translate('编辑'); ?>
+                                                </a>
+                                                <a href="<?php echo $this->url('p-order', ['action'=>'authPassOrder', 'id'=>$order->getPOrderId()], ['query' => ['qToken' => $this->common()->getCsrfValue()]]); ?>" class="btn btn-xs btn-success"><i class="fa fa-check"></i> <?php echo $this->translate('审核'); ?></a>
+                                                <a href="javascript:;" onclick="deleteConfirm('<?php echo $this->translate('您确实要删除该采购单吗？'); ?>', '<?php echo $this->url('p-order', ['action'=>'delete', 'id'=>$order->getPOrderId()], ['query' => ['qToken' => $this->common()->getCsrfValue()]]); ?>');" class="btn btn-xs btn-danger">
+                                                    <i class="fa fa-trash"></i> <?php echo $this->translate('删除'); ?>
+                                                </a>
+                                            <?php } ?>
+
+                                                <a href="<?php echo $this->url('p-order',
+                                                    ['action'=>'view', 'id'=>$order->getPOrderId()]); ?>"
+                                                   class="btn btn-xs btn-info"><i class="fa fa-info-circle"></i> <?php echo $this->translate('查看'); ?>
+                                                </a>
+
+                                            <?php if($order->getPOrderState() == 1) { ?>
+                                                <a href="<?php echo $this->url('order-return',
+                                                    ['action'=>'returnOrder', 'id'=>$order->getPOrderId()]); ?>" class="btn btn-xs btn-primary"><i class="fa fa-share"></i> <?php echo $this->translate('采购退货'); ?></a>
+                                                <div style="margin-top: 6px;">
+                                                <a href="<?php echo $this->url('warehouse-order', ['action'=>'add', 'id'=>$order->getPOrderId()]); ?>" class="btn btn-xs btn-primary"><i class="fa fa-plus"></i> <?php echo $this->translate('验货入库'); ?></a>
+                                                <a href="<?php echo $this->url('p-order', ['action'=>'cancelOrder', 'id'=>$order->getPOrderId()], ['query' => ['qToken' => $this->common()->getCsrfValue()]]); ?>" class="btn btn-xs btn-warning"><i class="fa fa-remove"></i> <?php echo $this->translate('取消审核'); ?></a>
+                                                </div>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </table>
+                    </div>
+                    <div class="box-footer clearfix">
+                        <?php echo $this->paginationControl($this->orderList, 'Sliding', 'layout/page', ['route' => 'p-order']); ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</div>

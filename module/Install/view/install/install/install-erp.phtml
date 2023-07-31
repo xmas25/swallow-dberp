@@ -1,0 +1,189 @@
+<?php
+    $form = $this->form;
+    $form->prepare();
+    ?>
+<?php echo $this->form()->openTag($form); ?>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th colspan="2" class="text-center">
+            <h3><?php echo $this->translate('DBERP系统安装信息填写'); ?></h3>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th width="35%" class="text-right"><?php echo $this->translate('数据库服务器'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('dbHost')); ?>
+            <?php echo $this->formElementErrors($form->get('dbHost'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('数据库名称'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('dbName')); ?>
+            <?php echo $this->formElementErrors($form->get('dbName'), ['class'=>'error-message']); ?>
+            <small class="text-info"><?php echo $this->translate('数据库需要提前建立，系统不会自动创建'); ?></small>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('数据库用户名'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('dbUser')); ?>
+            <?php echo $this->formElementErrors($form->get('dbUser'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('数据库密码'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('dbPassword')); ?>
+            <?php echo $this->formElementErrors($form->get('dbPassword'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('数据库连接端口'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('dbPort')); ?>
+            <?php echo $this->formElementErrors($form->get('dbPort'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2" class="text-center">
+            <h4><?php echo $this->translate('管理员信息'); ?></h4>
+        </th>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('管理员账号'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('adminUser')); ?>
+            <?php echo $this->formElementErrors($form->get('adminUser'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('管理员邮箱'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('adminEmail')); ?>
+            <?php echo $this->formElementErrors($form->get('adminEmail'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('管理员密码'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('adminPassword')); ?>
+            <?php echo $this->formElementErrors($form->get('adminPassword'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('再次输入管理员密码'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('adminComPassword')); ?>
+            <?php echo $this->formElementErrors($form->get('adminComPassword'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2" class="text-center">
+            <h4><?php echo $this->translate('公司信息'); ?></h4>
+        </th>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('公司名称'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('shopName')); ?>
+            <?php echo $this->formElementErrors($form->get('shopName'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('所在时区'); ?></th>
+        <td>
+            <?php echo $this->formElement($form->get('timeZone')); ?>
+            <?php echo $this->formElementErrors($form->get('timeZone'), ['class'=>'error-message']); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('安装提示'); ?></th>
+        <td class="text-danger"><?php echo sprintf($this->translate('当数据库中已经存在DBERP系统数据表时，安装时会删除已有的DBERP数据表，重新写入DBERP初始化数据表。%s安装操作对同一数据库中的其他系统数据表不会产生任何影响%s。'),'<br><strong>','</strong>'); ?></td>
+    </tr>
+    </tbody>
+</table>
+    <p class="text-center" style="margin-bottom: 20px;">
+        <button type="submit" class="btn btn-large btn-primary"><?php echo $this->translate('点击安装'); ?></button>
+    </p>
+<?php echo $this->form()->closeTag(); ?>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#<?php echo $form->getName(); ?>").validate({
+            rules: {
+                dbHost: {
+                    required: true
+                },
+                dbName: {
+                    required: true
+                },
+                dbUser: {
+                    required: true
+                },
+                dbPassword: {
+                    required: true
+                },
+                dbPort: {
+                    required: true
+                },
+                adminUser: {
+                    required: true
+                },
+                adminPassword: {
+                    required: true,
+                    minlength: 6
+                },
+                adminComPassword: {
+                    required: true,
+                    equalTo: "#adminPassword"
+                },
+                shopName: {
+                    required: true
+                }
+            },
+            messages: {
+                dbHost: {
+                    required: "<?php echo $this->translate('数据库服务器地址不能为空!'); ?>"
+                },
+                dbName: {
+                    required: "<?php echo $this->translate('数据库名称不能为空!'); ?>"
+                },
+                dbUser: {
+                    required: "<?php echo $this->translate('数据库用户名不能为空!'); ?>"
+                },
+                dbPassword: {
+                    required: "<?php echo $this->translate('数据库密码不能为空!'); ?>"
+                },
+                dbPort: {
+                    required: "<?php echo $this->translate('数据库端口不能为空!'); ?>"
+                },
+                adminUser: {
+                    required: "<?php echo $this->translate('管理员账号不能为空!'); ?>"
+                },
+                adminPassword: {
+                    required: "<?php echo $this->translate('管理员密码不能为空!'); ?>",
+                    minlength: "<?php echo $this->translate('管理员密码最少6位!'); ?>"
+                },
+                adminComPassword: {
+                    required: "<?php echo $this->translate('确认密码不能为空!'); ?>",
+                    equalTo: "<?php echo $this->translate('两次输入的密码不同!'); ?>"
+                },
+                shopName: {
+                    required: "<?php echo $this->translate('网站名称不能为空!'); ?>"
+                }
+            },
+            submitHandler: function(form) {
+                layer.msg('请等待，系统安装中……', {
+                    icon: 16
+                    ,shade: 0.01
+                    ,time: 300000
+                });
+                form.submit();
+            }
+        });
+    });
+</script>

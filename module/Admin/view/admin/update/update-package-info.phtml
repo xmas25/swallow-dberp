@@ -1,0 +1,75 @@
+<div class="content-wrapper">
+    <form method="post" class="form-horizontal">
+        <section class="content-header">
+            <?php echo $this->partial('layout/breadcrumb'); ?>
+
+            <h1 class="pull-right" id="dbshop-menu-top">
+                <?php echo $this->HelpUrl('erpUpdate'); ?>
+            </h1>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><?php echo $this->translate('更新包详情'); ?></h3>
+                        </div>
+
+                        <div class="box-body">
+                            <?php echo $this->partial('layout/messages'); ?>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><?php echo $this->translate('已绑定域名'); ?></label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static"><?php echo $this->escapeHtml($this->serviceBind['url']); ?></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><?php echo $this->translate('更新包名称'); ?></label>
+                                <div class="col-sm-5">
+                                    <p class="form-control-static"><?php echo $this->result['packageInfo']['packageUpdateName']; ?></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><?php echo $this->translate('更新包版本'); ?></label>
+                                <div class="col-sm-5">
+                                    <p class="form-control-static"><?php echo $this->result['packageInfo']['versionName']; ?></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><?php echo $this->translate('更新功能描述'); ?></label>
+                                <div class="col-sm-10 form-control-static">
+                                    <?php echo $this->result['packageInfo']['packageUpdateBody']; ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-5">
+                                    <button type="button" onclick="updatePackage();" class="btn btn-success"><?php echo $this->translate('点击更新'); ?></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </form>
+</div>
+<script type="text/javascript">
+    function updatePackage() {
+        layer.msg('<?php echo $this->translate('系统正在更新……，请不要关闭页面'); ?>', {
+            icon: 16
+            ,shade: 0.01
+            ,time: 300000
+        });
+        $.post("<?php echo $this->url('update', ['action' => 'startErpPackage', 'id' => $this->result['packageInfo']['packageId']]) ?>", {}, function (data) {
+            if (data.state == 'false') {
+                layer.alert(data.message, {title: '<?php echo $this->translate('错误提示'); ?>', area:['50%', '70%']});
+                return false;
+            }
+            erpMessage(data.message);
+            window.location.href = "<?php echo $this->url('update'); ?>";
+        }, 'json');
+    }
+</script>

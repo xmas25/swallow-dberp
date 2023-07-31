@@ -1,0 +1,95 @@
+<div class="content-wrapper">
+    <?php
+    $form = $this->form;
+    $form->prepare();
+
+    $form->get('company_name|base')->setAttributes([
+        'placeholder' => $this->translate('公司名称')
+    ]);
+
+    $form->get('website_icp|base')->setAttributes([
+        'placeholder' => $this->translate('填写网站备案号')
+    ]);
+    ?>
+    <?php echo $this->form()->openTag($form); ?>
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> <?php echo $this->translate('保存设置'); ?></button>
+            <?php echo $this->HelpUrl('system'); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_1" data-toggle="tab"><?php echo $this->translate('基本设置'); ?></a></li>
+                        <!--li><a href="#tab_2" data-toggle="tab">高级设置</a></li>
+                        <li><a href="#tab_3" data-toggle="tab">货币设置</a></li-->
+                    </ul>
+                    <div class="tab-content">
+                        <?php echo $this->partial('layout/messages'); ?>
+                        <div class="tab-pane active" id="tab_1">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><?php echo $this->translate('公司名称'); ?><span class="must_add_value">*</span></label>
+                                    <div class="col-sm-6">
+                                        <?php echo $this->formElement($form->get('company_name|base')); ?>
+                                        <?php echo $this->formElementErrors($form->get('company_name|base'), ['class'=>'error-message']); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><?php echo $this->translate('网站备案号'); ?></label>
+                                    <div class="col-sm-3">
+                                        <?php echo $this->formElement($form->get('website_icp|base')); ?>
+                                        <?php echo $this->formElementErrors($form->get('website_icp|base'), ['class'=>'error-message']); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><?php echo $this->translate('系统时区'); ?><span class="must_add_value">*</span></label>
+                                    <div class="col-sm-3">
+                                        <?php echo $this->formElement($form->get('website_timezone|base')); ?>
+                                        <?php echo $this->formElementErrors($form->get('website_timezone|base'), ['class'=>'error-message']); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><?php echo $this->translate('商城服务'); ?></label>
+                                    <div class="col-sm-3">
+                                        <div class="checkbox">
+                                            <label>
+                                                <?php echo $this->formElement($form->get('shop_service|base')); ?><?php echo $this->translate('启用'); ?>
+                                                <?php echo $this->formElementErrors($form->get('shop_service|base'), ['class'=>'error-message']); ?>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_2">
+
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_3">
+
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                    <div>
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> <?php echo $this->translate('保存设置'); ?></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <?php echo $this->form()->closeTag(); ?>
+</div>

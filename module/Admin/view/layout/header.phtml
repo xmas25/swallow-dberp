@@ -1,0 +1,97 @@
+<header class="main-header">
+    <a href="<?php echo $this->url('home');?>" class="logo">
+        <span class="logo-mini"><b>E</b>RP</span>
+        <span class="logo-lg"><b>DBE</b>RP</span>
+    </a>
+    <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li <?php echo ($this->moduleName == 'Admin' && $this->controllerName != 'HomeController') ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('admin-system', ['action'=> 'index']); ?>"><?php echo $this->translate('系统'); ?></a>
+                </li>
+                <li <?php echo $this->moduleName == 'Store' ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('goods');?>"><?php echo $this->translate('基础数据'); ?></a>
+                </li>
+                <li <?php echo $this->moduleName == 'Purchase' ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('p-order');?>"><?php echo $this->translate('采购'); ?></a>
+                </li>
+                <li <?php echo $this->moduleName== 'Sales' ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('sales-order');?>"><?php echo $this->translate('销售'); ?></a>
+                </li>
+                <li <?php echo $this->moduleName== 'Stock' ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('erp-stock');?>"><?php echo $this->translate('库存'); ?></a>
+                </li>
+                <li <?php echo $this->moduleName== 'Customer' ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('customer');?>"><?php echo $this->translate('客户'); ?></a>
+                </li>
+                <?php if ($this->shopServiceState == null || $this->shopServiceState == 1) { ?>
+                    <li <?php echo $this->moduleName== 'Shop' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('app-shop');?>"><?php echo $this->translate('商城'); ?></a>
+                    </li>
+                <?php } ?>
+                <li <?php echo $this->moduleName == 'Finance' ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('finance-payable');?>"><?php echo $this->translate('资金'); ?></a>
+                </li>
+                <!--li <?php echo $this->moduleName == 'Report' ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('report');?>"><?php echo $this->translate('报表'); ?></a>
+                </li-->
+                <li <?php echo ($this->moduleName == 'Admin' && $this->controllerName == 'HomeController') ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('home');?>"><?php echo $this->translate('首页'); ?></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="https://store.loongdom.cn/" target="_blank" title="<?php echo $this->translate('应用商城'); ?>"><i class="fa fa-shopping-bag fa-lg"></i> <span class="hidden-xs"><?php echo $this->translate('应用商城'); ?></span></a>
+                </li>
+
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img alt="" src="<?php echo $this->basePath('css/admin/img/avatar.png'); ?>" class="user-image">
+                        <span class="hidden-xs"><?php echo $this->currentAdmin('admin_name'); ?></span>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li class="user-header">
+                            <img src="<?php echo $this->basePath('css/admin/img/avatar.png'); ?>" class="img-circle" alt="User Image">
+                            <p>
+                                <?php echo $this->currentAdmin('admin_name'); ?> - <?php echo $this->currentAdmin('admin_group_name'); ?>
+                                <small><?php echo date("Y-m-d") ?></small>
+                            </p>
+                        </li>
+
+                        <li class="user-body">
+                            <div class="row">
+                                <div class="col-xs-4 text-center">
+                                    <a href="https://www.dberp.com.cn/" target="_blank"><?php echo $this->translate('官方网站'); ?></a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="https://bbs.loongdom.cn/" target="_blank"><?php echo $this->translate('交流论坛'); ?></a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="https://docs.dberp.net/" target="_blank"><?php echo $this->translate('在线文档'); ?></a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="<?php echo $this->url('admin', ['action'=>'edit', 'id'=>$this->currentAdmin('admin_id')]); ?>" class="btn btn-info"><i class="fa fa-user"></i> <?php echo $this->translate('个人资料'); ?></a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="<?php echo $this->url('logout');?>" class="btn btn-danger"><i class="fa fa-sign-out"></i> <?php echo $this->translate('退出'); ?></a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>

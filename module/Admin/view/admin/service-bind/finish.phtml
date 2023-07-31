@@ -1,0 +1,57 @@
+<div class="content-wrapper">
+    <form method="post" class="form-horizontal">
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right" id="dbshop-menu-top">
+            <?php echo $this->HelpUrl('serviceBind'); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('服务绑定'); ?></h3>
+                    </div>
+
+                    <div class="box-body">
+                        <?php echo $this->partial('layout/messages'); ?>
+                        <blockquote>
+                            <p class="text-green"><?php echo $this->translate('如果系统更换了新域名，需要在珑大会员中心添加新域名，然后进行解绑并重新绑定。'); ?></p>
+                        </blockquote>
+                        <?php if (isset($this->url)) { ?>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><?php echo $this->translate('已绑定域名'); ?></label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static"><?php echo $this->escapeHtml($this->url); ?></p>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><?php echo $this->translate('状态'); ?></label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static"><?php echo $this->translate('服务已经绑定'); ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><?php echo $this->translate('珑大会员账号'); ?></label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static"><?php echo $this->escapeHtml($this->userName); ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-5">
+                                <a href="<?php echo $this->url('service-bind', ['action' => 'clearServiceBind']) ?>" class="btn btn-danger"><?php echo $this->translate('点击解绑'); ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    </form>
+</div>

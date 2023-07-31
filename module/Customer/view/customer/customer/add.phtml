@@ -1,0 +1,269 @@
+<div class="content-wrapper">
+    <?php
+    $form = $this->form;
+    $form->prepare();
+
+    $form->get('customerCode')->setAttributes([
+        'placeholder' => $this->translate('客户编码')
+    ]);
+
+    $form->get('customerName')->setAttributes([
+        'placeholder' => $this->translate('客户名称')
+    ]);
+
+    $form->get('customerSort')->setAttributes([
+        'placeholder' => $this->translate('客户排序')
+    ]);
+
+    $form->get('customerAddress')->setAttributes([
+        'placeholder' => $this->translate('地址')
+    ]);
+
+    $form->get('customerEmail')->setAttributes([
+        'placeholder' => $this->translate('电子邮箱')
+    ]);
+
+    $form->get('customerContacts')->setAttributes([
+        'placeholder' => $this->translate('联系人')
+    ]);
+
+    $form->get('customerPhone')->setAttributes([
+        'placeholder' => $this->translate('手机')
+    ]);
+
+    $form->get('customerTelephone')->setAttributes([
+        'placeholder' => $this->translate('座机')
+    ]);
+
+    $form->get('customerBank')->setAttributes([
+        'placeholder' => $this->translate('开户银行')
+    ]);
+
+    $form->get('customerBankAccount')->setAttributes([
+        'placeholder' => $this->translate('开户行账号')
+    ]);
+
+    $form->get('customerTax')->setAttributes([
+        'placeholder' => $this->translate('税号')
+    ]);
+
+    $form->get('customerInfo')->setAttributes([
+        'placeholder' => $this->translate('备注')
+    ]);
+    ?>
+    <?php echo $this->form()->openTag($form); ?>
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('customer');?>" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> <?php echo $this->translate('返回客户列表'); ?></a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> <?php echo $this->translate('保存客户'); ?></button>
+            <?php echo (isset($customer) ? $this->HelpUrl('customerEdit') : $this->HelpUrl('customerAdd')); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo ((isset($customer) && $customer->getcustomerId()) ? $this->translate('编辑客户') : $this->translate('添加客户')); ?></h3>
+                    </div>
+
+                    <div class="box-body">
+                        <?php echo $this->formElementErrors($form->get('dberp_csrf'), ['class'=>'error-message']); ?>
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('客户分类'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('customerCategoryId')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerCategoryId'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('客户名称'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('customerName')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerName'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('客户编码'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('customerCode')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerCode'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('联系人'); ?>
+                                    <?php echo $this->formElement($form->get('customerContacts')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerContacts'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('手机号码'); ?>
+                                    <?php echo $this->formElement($form->get('customerPhone')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerPhone'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('座机号码'); ?>
+                                    <?php echo $this->formElement($form->get('customerTelephone')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerTelephone'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('电子邮箱'); ?>
+                                    <?php echo $this->formElement($form->get('customerEmail')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerEmail'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('地区'); ?><span class="must_add_value">*</span>
+                                    <div class="controls" id="region">
+                                        <?php if(isset($customer)) { ?>
+                                            <span class="show_region_value"><?php echo $customer->getRegionValues();?></span>
+                                            <button type="button" onclick="regionEdit();" class="btn btn-success btn-xs show_region_value"><i class="fa fa-pencil"></i> <?php echo $this->translate('修改'); ?></button>
+                                        <?php } ?>
+                                        <select id="show_address_area" class="form-control input-sm" name="show_address_area" style="width:100px;height:30px;line-height: 30px;display: inline;<?php echo isset($customer) ? 'display: none' : '';?>">
+                                            <option value=""><?php echo $this->translate('请选择'); ?></option>
+                                            <?php if ($this->region and !empty($this->region)) {
+                                                foreach ($this->region as $value) {
+                                                    ?>
+                                                    <option
+                                                            value="<?php echo $value->getRegionId(); ?>"><?php echo $value->getRegionName(); ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                        <?php echo $this->formElement($form->get('regionId')); ?>
+                                        <?php echo $this->formElementErrors($form->get('regionId'), ['class'=>'error-message']); ?>
+
+                                        <?php echo $this->formElement($form->get('regionValues')); ?>
+                                        <?php echo $this->formElementErrors($form->get('regionValues'), ['class'=>'error-message']); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('详细地址'); ?>
+                                    <?php echo $this->formElement($form->get('customerAddress')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerAddress'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('开户银行'); ?>
+                                    <?php echo $this->formElement($form->get('customerBank')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerBank'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('开户账号'); ?>
+                                    <?php echo $this->formElement($form->get('customerBankAccount')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerBankAccount'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('税号'); ?>
+                                    <?php echo $this->formElement($form->get('customerTax')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerTax'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('排序'); ?>
+                                    <?php echo $this->formElement($form->get('customerSort')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerSort'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-8 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('备注'); ?>
+                                    <?php echo $this->formElement($form->get('customerInfo')); ?>
+                                    <?php echo $this->formElementErrors($form->get('customerInfo'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <?php echo $this->formElement($form->get('dberp_csrf')); ?>
+                            <button type="submit" class="btn btn-primary col-md-offset-4"><i class="fa fa-check"></i> <?php echo $this->translate('保存客户'); ?></button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+    </section>
+    <?php echo $this->form()->closeTag(); ?>
+
+</div>
+<script type="text/javascript">
+    var SITE_REGION_URL = '<?php echo $this->url('region', ['action' => 'ajaxRegion']);?>';
+    var AREA_SELECT_LANG = '<?php echo $this->translate('请选择'); ?>';
+
+    regionInit("region");
+
+    $(document).ready(function() {
+        $("#<?php echo $form->getName(); ?>").validate({
+            rules: {
+                customerCategoryId: {
+                    required: true,
+                    min: 1
+                },
+                customerName: {
+                    required: true
+                },
+                customerCode: {
+                    required: true
+                },
+                show_address_area: {
+                    required: true
+                }
+            },
+            messages: {
+                customerCategoryId: {
+                    required: "<?php echo $this->translate('请选择客户分类！'); ?>",
+                    min: "<?php echo $this->translate('请选择客户分类！'); ?>"
+                },
+                customerName: {
+                    required: "<?php echo $this->translate('请填写客户名称！'); ?>"
+                },
+                customerCode: {
+                    required: "<?php echo $this->translate('请填写客户编码！'); ?>"
+                },
+                show_address_area: {
+                    required: "<?php echo $this->translate('请选择地区！'); ?>"
+                }
+            }
+        });
+    });
+</script>

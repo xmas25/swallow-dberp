@@ -1,0 +1,679 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DBErp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-13 17:40+0800\n"
+"PO-Revision-Date: 2022-07-13 17:40+0800\n"
+"Last-Translator: Baron <baron@loongdom.cn>\n"
+"Language-Team: DBErp <baron@loongdom.cn>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: src/Controller/ExWarehouseController.php:101
+msgid "其他出库成功！"
+msgstr ""
+
+#: src/Controller/ExWarehouseController.php:102
+msgid "其他出库"
+msgstr ""
+
+#: src/Controller/ExWarehouseController.php:105
+msgid "其他出库失败！"
+msgstr ""
+
+#: src/Controller/ExWarehouseController.php:123
+msgid "该出库单不存在！"
+msgstr ""
+
+#: src/Controller/IndexController.php:104
+msgid "其他入库成功！"
+msgstr ""
+
+#: src/Controller/IndexController.php:105
+msgid "其他入库"
+msgstr ""
+
+#: src/Controller/IndexController.php:108
+msgid "其他入库失败！"
+msgstr ""
+
+#: src/Controller/IndexController.php:127
+msgid "该入库单不存在！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:94
+msgid "库存盘点添加成功！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:95
+#: src/Controller/StockCheckController.php:144
+#: src/Controller/StockCheckController.php:210
+#: src/Controller/StockCheckController.php:241
+#: src/Controller/StockCheckController.php:273
+#: view/stock/stock-check/add.phtml:24 view/stock/stock-check/add.phtml:140
+msgid "库存盘点"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:98
+msgid "仓库盘点失败！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:116
+#: src/Controller/StockCheckController.php:170
+#: src/Controller/StockCheckController.php:188
+msgid "该库存盘点单不存在！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:120
+msgid "该库存盘点已经完成！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:143
+msgid "库存盘点编辑成功！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:147
+msgid "库存盘点编辑失败！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:192
+msgid "该库存盘点已经完成，无需确认！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:198
+msgid "该库存盘点单无商品！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:209
+msgid "库存盘点确认完成！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:213
+msgid "库存盘点确认失败！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:231
+msgid "该库存盘点已经完成，无法删除！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:240
+msgid "库存盘点单删除成功！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:244
+msgid "库存盘点单删除失败！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:247
+msgid "该库存盘点不存在！"
+msgstr ""
+
+#: src/Controller/StockCheckController.php:273
+msgid "删除商品"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:94
+msgid "库间调拨添加成功！"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:95
+#: src/Controller/StockTransferController.php:150
+#: src/Controller/StockTransferController.php:180
+msgid "库间调拨"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:98
+msgid "库间调拨添加失败！"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:116
+#: src/Controller/StockTransferController.php:134
+#: src/Controller/StockTransferController.php:186
+msgid "该库间调拨单不存在！"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:138
+msgid "该库间调拨单已经完成，无需重复处理！"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:149
+msgid "库间调拨审核完成！"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:153
+msgid "审核调拨失败！"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:170
+msgid "该库间调拨单已经完成，不能删除！"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:179
+msgid "库间调拨单删除成功！"
+msgstr ""
+
+#: src/Controller/StockTransferController.php:183
+msgid "库间调拨单删除失败！"
+msgstr ""
+
+#: src/Form/ExOrderSearchForm.php:45 src/Form/OtherOrderSearchForm.php:45
+msgid "起始金额"
+msgstr ""
+
+#: src/Form/ExOrderSearchForm.php:55 src/Form/OtherOrderSearchForm.php:55
+msgid "结束金额"
+msgstr ""
+
+#: src/Form/ExOrderSearchForm.php:65 src/Form/OtherOrderSearchForm.php:65
+msgid "起始时间"
+msgstr ""
+
+#: src/Form/ExOrderSearchForm.php:75 src/Form/OtherOrderSearchForm.php:75
+msgid "结束时间"
+msgstr ""
+
+#: src/Form/ExOrderSearchForm.php:85 src/Form/OtherOrderSearchForm.php:85
+#: view/stock/index/add.phtml:10 view/stock/index/add.phtml:43
+#: view/stock/index/index.phtml:24 view/stock/index/view.phtml:24
+msgid "入库单号"
+msgstr ""
+
+#: src/Form/ExOrderSearchForm.php:104 src/Form/OtherOrderSearchForm.php:104
+msgid "备注信息"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:10 view/stock/ex-warehouse/add.phtml:43
+#: view/stock/ex-warehouse/index.phtml:24 view/stock/ex-warehouse/view.phtml:24
+msgid "出库单号"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:14 view/stock/ex-warehouse/add.phtml:59
+#: view/stock/ex-warehouse/index.phtml:27 view/stock/index/add.phtml:14
+#: view/stock/index/add.phtml:59 view/stock/index/index.phtml:27
+#: view/stock/stock-check/add.phtml:14 view/stock/stock-check/add.phtml:77
+#: view/stock/stock-check/index.phtml:27 view/stock/stock-transfer/add.phtml:14
+#: view/stock/stock-transfer/add.phtml:77
+#: view/stock/stock-transfer/index.phtml:30
+#: view/stock/stock-transfer/view.phtml:55
+msgid "备注"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:23
+msgid "返回出库列表"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:24 view/stock/ex-warehouse/add.phtml:106
+msgid "出库"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:35 view/stock/index/add.phtml:35
+msgid "编辑采购订单"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:35 view/stock/index/add.phtml:35
+#: view/stock/index/index.phtml:7
+msgid "添加入库"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:51 view/stock/ex-warehouse/index.phtml:26
+#: view/stock/ex-warehouse/view.phtml:30 view/stock/index/add.phtml:51
+#: view/stock/index/index.phtml:26 view/stock/index/view.phtml:30
+#: view/stock/stock-check/add.phtml:51 view/stock/stock-check/view.phtml:30
+msgid "仓库"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:71 view/stock/ex-warehouse/view.phtml:56
+msgid "出库商品"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:73 view/stock/index/add.phtml:73
+#: view/stock/stock-transfer/add.phtml:90
+msgid "点击添加商品"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:84 view/stock/ex-warehouse/view.phtml:62
+#: view/stock/index/add.phtml:84 view/stock/index/view.phtml:62
+#: view/stock/stock-check/add.phtml:99 view/stock/stock-check/view.phtml:67
+#: view/stock/stock-transfer/add.phtml:98
+#: view/stock/stock-transfer/view.phtml:67
+msgid "商品编号"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:85 view/stock/ex-warehouse/view.phtml:63
+#: view/stock/index/add.phtml:85 view/stock/index/view.phtml:63
+#: view/stock/stock-check/add.phtml:100 view/stock/stock-check/view.phtml:68
+#: view/stock/stock-transfer/add.phtml:99
+#: view/stock/stock-transfer/view.phtml:68
+msgid "商品名称"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:86 view/stock/ex-warehouse/view.phtml:64
+#: view/stock/index/add.phtml:86 view/stock/index/view.phtml:64
+#: view/stock/stock-check/add.phtml:101 view/stock/stock-check/view.phtml:69
+#: view/stock/stock-transfer/add.phtml:100
+#: view/stock/stock-transfer/view.phtml:69
+msgid "商品规格"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:87 view/stock/ex-warehouse/view.phtml:65
+#: view/stock/index/add.phtml:87 view/stock/index/view.phtml:65
+#: view/stock/stock-check/add.phtml:102 view/stock/stock-check/view.phtml:70
+#: view/stock/stock-transfer/add.phtml:101
+#: view/stock/stock-transfer/view.phtml:70
+msgid "单位"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:88 view/stock/ex-warehouse/view.phtml:66
+msgid "出库单价"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:89 view/stock/ex-warehouse/view.phtml:67
+msgid "出库数量"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:90 view/stock/index/add.phtml:90
+msgid "税金"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:91 view/stock/ex-warehouse/view.phtml:68
+msgid "出库总价"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:92 view/stock/ex-warehouse/index.phtml:29
+#: view/stock/index/add.phtml:92 view/stock/index/index.phtml:29
+#: view/stock/stock-check/add.phtml:106 view/stock/stock-check/index.phtml:30
+#: view/stock/stock-transfer/add.phtml:104
+#: view/stock/stock-transfer/index.phtml:31
+msgid "操作"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:98
+msgid "出库金额合计"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:138
+msgid "出库单号不能为空！"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:141 view/stock/ex-warehouse/add.phtml:142
+#: view/stock/index/add.phtml:165 view/stock/index/add.phtml:166
+#: view/stock/stock-check/add.phtml:181 view/stock/stock-check/add.phtml:182
+msgid "请选择仓库！"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:147 view/stock/index/add.phtml:171
+msgid "请添加采购商品！"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:157 view/stock/index/add.phtml:181
+#: view/stock/stock-check/add.phtml:203 view/stock/stock-transfer/add.phtml:179
+msgid "请填写需要添加的商品名称！"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:166 view/stock/index/add.phtml:190
+#: view/stock/stock-check/add.phtml:212 view/stock/stock-transfer/add.phtml:188
+msgid "该商品已经添加！"
+msgstr ""
+
+#: view/stock/ex-warehouse/add.phtml:182 view/stock/index/add.phtml:113
+#: view/stock/index/add.phtml:206 view/stock/stock-check/add.phtml:126
+#: view/stock/stock-check/add.phtml:227 view/stock/stock-check/index.phtml:56
+#: view/stock/stock-transfer/add.phtml:202
+#: view/stock/stock-transfer/index.phtml:52
+msgid "删除"
+msgstr ""
+
+#: view/stock/ex-warehouse/index.phtml:7
+msgid "添加出库"
+msgstr ""
+
+#: view/stock/ex-warehouse/index.phtml:24 view/stock/index/index.phtml:24
+#: view/stock/stock-check/index.phtml:24
+#: view/stock/stock-transfer/index.phtml:24
+msgid "单数："
+msgstr ""
+
+#: view/stock/ex-warehouse/index.phtml:25 view/stock/index/index.phtml:25
+msgid "金额"
+msgstr ""
+
+#: view/stock/ex-warehouse/index.phtml:28 view/stock/index/index.phtml:28
+msgid "时间"
+msgstr ""
+
+#: view/stock/ex-warehouse/index.phtml:92 view/stock/index/index.phtml:92
+#: view/stock/stock-check/index.phtml:46
+#: view/stock/stock-transfer/index.phtml:47
+msgid "查看"
+msgstr ""
+
+#: view/stock/ex-warehouse/index.phtml:99
+msgid "暂无出库信息"
+msgstr ""
+
+#: view/stock/ex-warehouse/view.phtml:6
+msgid "返回其他出库单列表"
+msgstr ""
+
+#: view/stock/ex-warehouse/view.phtml:17
+msgid "其他出库单"
+msgstr ""
+
+#: view/stock/ex-warehouse/view.phtml:36 view/stock/index/view.phtml:36
+#: view/stock/stock-check/view.phtml:36
+#: view/stock/stock-transfer/index.phtml:25
+#: view/stock/stock-transfer/view.phtml:72
+msgid "状态"
+msgstr ""
+
+#: view/stock/ex-warehouse/view.phtml:36
+msgid "已出库"
+msgstr ""
+
+#: view/stock/ex-warehouse/view.phtml:45
+msgid "出库时间"
+msgstr ""
+
+#: view/stock/ex-warehouse/view.phtml:50
+msgid "出库备注"
+msgstr ""
+
+#: view/stock/ex-warehouse/view.phtml:86 view/stock/index/view.phtml:86
+#: view/stock/stock-check/view.phtml:91
+msgid "金额合计"
+msgstr ""
+
+#: view/stock/index/add.phtml:23
+msgid "返回入库列表"
+msgstr ""
+
+#: view/stock/index/add.phtml:24 view/stock/index/add.phtml:130
+msgid "入库"
+msgstr ""
+
+#: view/stock/index/add.phtml:71 view/stock/index/view.phtml:56
+msgid "入库商品"
+msgstr ""
+
+#: view/stock/index/add.phtml:88 view/stock/index/view.phtml:66
+msgid "入库单价"
+msgstr ""
+
+#: view/stock/index/add.phtml:89 view/stock/index/view.phtml:67
+msgid "入库数量"
+msgstr ""
+
+#: view/stock/index/add.phtml:91 view/stock/index/view.phtml:68
+msgid "入库总价"
+msgstr ""
+
+#: view/stock/index/add.phtml:122
+msgid "采购金额合计"
+msgstr ""
+
+#: view/stock/index/add.phtml:162
+msgid "入库单号不能为空！"
+msgstr ""
+
+#: view/stock/index/index.phtml:99
+msgid "暂无入库信息"
+msgstr ""
+
+#: view/stock/index/view.phtml:6
+msgid "返回其他入库单列表"
+msgstr ""
+
+#: view/stock/index/view.phtml:17
+msgid "其他入库单"
+msgstr ""
+
+#: view/stock/index/view.phtml:36
+msgid "已入库"
+msgstr ""
+
+#: view/stock/index/view.phtml:45
+msgid "入库时间"
+msgstr ""
+
+#: view/stock/index/view.phtml:50
+msgid "入库备注"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:10 view/stock/stock-check/add.phtml:43
+#: view/stock/stock-check/index.phtml:24 view/stock/stock-check/view.phtml:24
+msgid "盘点单号"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:23 view/stock/stock-check/view.phtml:6
+msgid "返回盘点列表"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:35
+msgid "编辑库存盘点"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:35
+msgid "添加库存盘点"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:59 view/stock/stock-check/index.phtml:28
+#: view/stock/stock-check/view.phtml:45
+msgid "盘点时间"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:70 view/stock/stock-check/index.phtml:26
+#: view/stock/stock-check/view.phtml:50
+msgid "盘点人"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:88 view/stock/stock-check/view.phtml:61
+msgid "盘点商品"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:90
+msgid "点击选择商品"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:103 view/stock/stock-check/view.phtml:71
+msgid "盘点前库存数量"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:104 view/stock/stock-check/view.phtml:72
+msgid "盘点后库存数量"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:105 view/stock/stock-check/view.phtml:73
+msgid "盘点后库存金额"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:178
+msgid "盘点单号不能为空！"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:185
+msgid "请填写盘点人！"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:188
+msgid "盘点时间不能为空！"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:193
+msgid "请添加盘点商品！"
+msgstr ""
+
+#: view/stock/stock-check/add.phtml:243
+msgid "商品删除失败！"
+msgstr ""
+
+#: view/stock/stock-check/index.phtml:7
+msgid "添加盘点"
+msgstr ""
+
+#: view/stock/stock-check/index.phtml:25
+msgid "盘点仓库"
+msgstr ""
+
+#: view/stock/stock-check/index.phtml:29
+msgid "盘点状态"
+msgstr ""
+
+#: view/stock/stock-check/index.phtml:50
+msgid "确认"
+msgstr ""
+
+#: view/stock/stock-check/index.phtml:53
+msgid "编辑"
+msgstr ""
+
+#: view/stock/stock-check/index.phtml:55
+msgid "您确实要删除该盘点单吗？"
+msgstr ""
+
+#: view/stock/stock-check/index.phtml:64
+msgid "暂无盘点信息"
+msgstr ""
+
+#: view/stock/stock-check/view.phtml:17
+msgid "库存盘点详情"
+msgstr ""
+
+#: view/stock/stock-check/view.phtml:36
+msgid "已盘点"
+msgstr ""
+
+#: view/stock/stock-check/view.phtml:36
+msgid "待盘点"
+msgstr ""
+
+#: view/stock/stock-check/view.phtml:55
+msgid "盘点备注"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:10
+#: view/stock/stock-transfer/add.phtml:43
+#: view/stock/stock-transfer/index.phtml:24
+#: view/stock/stock-transfer/view.phtml:24
+msgid "调拨单号"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:23
+msgid "返回调拨列表"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:24
+#: view/stock/stock-transfer/add.phtml:114
+msgid "提交调拨"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:35
+msgid "编辑调拨单"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:35
+msgid "添加调拨单"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:51
+#: view/stock/stock-transfer/index.phtml:26
+#: view/stock/stock-transfer/view.phtml:30
+msgid "调出仓库"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:59
+#: view/stock/stock-transfer/index.phtml:27
+#: view/stock/stock-transfer/view.phtml:36
+msgid "调入仓库"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:69
+#: view/stock/stock-transfer/index.phtml:28
+msgid "调拨时间"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:88
+#: view/stock/stock-transfer/view.phtml:61
+msgid "调拨商品"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:102
+msgid "仓库库存数"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:103
+#: view/stock/stock-transfer/view.phtml:71
+msgid "调拨数量"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:153
+msgid "调拨单号不能为空！"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:156
+#: view/stock/stock-transfer/add.phtml:157
+msgid "请选择调出仓库！"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:160
+#: view/stock/stock-transfer/add.phtml:161
+msgid "请选择调入仓库！"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:164
+msgid "调拨时间不能为空！"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:169
+msgid "请添加调拨商品！"
+msgstr ""
+
+#: view/stock/stock-transfer/add.phtml:216
+msgid "超过调出库存！"
+msgstr ""
+
+#: view/stock/stock-transfer/index.phtml:7
+msgid "添加库间调拨"
+msgstr ""
+
+#: view/stock/stock-transfer/index.phtml:29
+msgid "完成时间"
+msgstr ""
+
+#: view/stock/stock-transfer/index.phtml:42
+msgid "未完成"
+msgstr ""
+
+#: view/stock/stock-transfer/index.phtml:50
+msgid "审核调拨"
+msgstr ""
+
+#: view/stock/stock-transfer/index.phtml:51
+msgid "您确实要删除该库间调拨单吗？"
+msgstr ""
+
+#: view/stock/stock-transfer/index.phtml:60
+msgid "暂无调拨信息"
+msgstr ""
+
+#: view/stock/stock-transfer/view.phtml:6
+msgid "返回库间调拨列表"
+msgstr ""
+
+#: view/stock/stock-transfer/view.phtml:17
+msgid "库间调拨详情"
+msgstr ""
+
+#: view/stock/stock-transfer/view.phtml:45
+msgid "申请调拨时间"
+msgstr ""
+
+#: view/stock/stock-transfer/view.phtml:50
+msgid "完成调拨时间"
+msgstr ""

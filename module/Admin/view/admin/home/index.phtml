@@ -1,0 +1,261 @@
+<style>
+    .content {
+        margin-top: 0;
+    }
+
+    .content-wrapper, .main-footer {
+        margin-left: 0;
+    }
+</style>
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            <?php echo $this->translate('首页'); ?>
+            <small><?php echo $this->translate('信息概览'); ?></small>
+        </h1>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <?php if (!extension_loaded('fileinfo')) { ?>
+                <div class="col-md-12">
+                    <div class="callout callout callout-warning">
+                        <p><?php echo $this->translate('fileinfo 扩展未安装，会影响图片上传功能'); ?> <a href="https://bbs.dbshop.net/forum.php?mod=viewthread&tid=2343" target="_blank" class="btn btn-success btn-sm" style="text-decoration: none;"><?php echo $this->translate('点击查看扩展安装方式'); ?></a></p>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    layer.alert('<?php echo $this->translate('fileinfo 扩展未安装，会影响图片上传功能。请点击页面内的fileinfo扩展安装方式进行安装。'); ?>');
+                </script>
+            <?php } ?>
+            <?php if (empty($this->serviceBind['key'])) { ?>
+                <div class="col-md-12">
+                    <div class="callout callout-danger">
+                        <h4><?php echo $this->translate('重要提示'); ?></h4>
+                        <p><?php echo $this->translate('您还没有进行服务绑定，官方建议您优先进行服务绑定处理。绑定后，可以在线进行系统更新、插件安装等等，进一步对系统进行优化。'); ?> <a href="<?php echo $this->url('service-bind'); ?>" class="btn btn-success" style="text-decoration: none;"><?php echo $this->translate('点击去设置服务绑定'); ?></a></p>
+                    </div>
+                </div>
+            <?php } ?>
+
+            <?php if ($this->newPackage == 1 || $this->pluginPackage == 1) { ?>
+                <div class="col-md-12">
+                    <div class="callout callout-danger">
+                        <h4 style="border-bottom: 1px solid #fff;padding-bottom: 8px;"><i class="fa fa-cog fa-lg fa-spin"></i> <?php echo $this->translate('更新提示'); ?></h4>
+                        <?php if ($this->newPackage == 1) { ?>
+                            <p style="margin: 0 0 3px;"><?php echo $this->translate('您的系统有新的更新包啦!'); ?> <a href="<?php echo $this->url('update'); ?>" class="btn btn-sm btn-success" style="text-decoration: none;"><i class="fa fa-cloud-download"></i> <?php echo $this->translate('点击去更新'); ?></a></p>
+                        <?php } ?>
+                        <?php if ($this->pluginPackage == 1) { ?>
+                            <p style="margin: 0 0 3px;"><?php echo $this->translate('您的扩展插件有更新啦!'); ?> <a href="<?php echo $this->url('extend'); ?>" class="btn btn-sm btn-success" style="text-decoration: none;"><i class="fa fa-cloud-download"></i> <?php echo $this->translate('点击去更新'); ?></a></p>
+                        <?php } ?>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-square-o"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><?php echo $this->translate('商品'); ?></span>
+                        <span class="info-box-number"><?php echo $this->goodsCount?></span>
+                        <span class="info-box-more"><small></small></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="ion ion-ios-cart-outline"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><?php echo $this->translate('采购'); ?></span>
+                        <span class="info-box-number"><?php echo $this->erpCurrencyFormat($this->purchaseAmount); ?></span>
+                        <span class="info-box-more"><small></small></span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="ion ion-ios-briefcase-outline"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><?php echo $this->translate('销售'); ?></span>
+                        <span class="info-box-number"><?php echo $this->erpCurrencyFormat($this->salesAmount); ?></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><?php echo $this->translate('客户'); ?></span>
+                        <span class="info-box-number"><?php echo $this->customerCount?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('采购订单'); ?></h3>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th><?php echo $this->translate('订单号'); ?></th>
+                                    <th><?php echo $this->translate('订单金额'); ?></th>
+                                    <th><?php echo $this->translate('订单状态'); ?></th>
+                                    <th><?php echo $this->translate('供应商'); ?></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php if($this->purchaseOrder) { foreach ($this->purchaseOrder as $orderValue) { ?>
+                                <tr>
+                                    <td><a href="<?php echo $this->url('p-order', ['action'=>'view', 'id' => $orderValue->getPOrderId()]); ?>"><?php echo $this->escapeHtml($orderValue->getPorderSn()); ?></a></td>
+                                    <td><?php echo $this->erpCurrencyFormat($orderValue->getPOrderAmount());?></td>
+                                    <td><?php echo $this->PurchaseHelper()->orderState($orderValue->getPOrderState(), 2); ?></td>
+                                    <td><?php echo $this->escapeHtml($orderValue->getOneSupplier()->getSupplierName()); ?></td>
+                                </tr>
+                                <?php } } ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="box-footer clearfix">
+                        <a href="<?php echo $this->url('p-order', ['action'=> 'add']);?>" class="btn btn-sm btn-info btn-flat pull-left"><?php echo $this->translate('添加采购订单'); ?></a>
+                        <a href="<?php echo $this->url('p-order');?>" class="btn btn-sm btn-default btn-flat pull-right"><?php echo $this->translate('查看采购订单'); ?></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('销售订单'); ?></h3>
+
+                    </div>
+
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th><?php echo $this->translate('订单号'); ?></th>
+                                    <th><?php echo $this->translate('订单金额'); ?></th>
+                                    <th><?php echo $this->translate('订单状态'); ?></th>
+                                    <th><?php echo $this->translate('客户'); ?></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php if($this->salesOrder) { foreach ($this->salesOrder as $orderValue) { ?>
+                                <tr>
+                                    <td><a href="<?php echo $this->url('sales-order', ['action'=>'view', 'id'=>$orderValue->getSalesOrderId()]); ?>"><?php echo $this->escapeHtml($orderValue->getSalesOrderSn()); ?></a></td>
+                                    <td><?php echo $this->erpCurrencyFormat($orderValue->getSalesOrderAmount());?></td>
+                                    <td><?php echo $this->salesHelper()->salesOrderState($orderValue->getSalesOrderState(), 2); ?></td>
+                                    <td><?php echo $this->escapeHtml($orderValue->getOneCustomer()->getCustomerName()); ?></td>
+                                </tr>
+                                <?php } } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="box-footer clearfix">
+                        <a href="<?php echo $this->url('sales-order', ['action'=> 'add']);?>" class="btn btn-sm btn-info btn-flat pull-left"><?php echo $this->translate('添加销售订单'); ?></a>
+                        <a href="<?php echo $this->url('sales-order');?>" class="btn btn-sm btn-default btn-flat pull-right"><?php echo $this->translate('查看销售订单'); ?></a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-xs-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('新闻动态'); ?></h3>
+                    </div>
+                    <?php if ($this->newsList) { ?>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table">
+                                <tbody>
+                                <?php foreach ($this->newsList as $newsValue) { ?>
+                                    <tr>
+                                        <td>
+                                            <a href="<?php echo $newsValue['newsUrl']; ?>" class="<?php if (isset($newsValue['redState']) && $newsValue['redState'] == 1) echo 'text-red'; ?> <?php if (isset($newsValue['boldState']) && $newsValue['boldState'] == 1) echo 'text-bold'; ?>" target="_blank"><?php echo $this->escapeHtml($newsValue['newsTitle']); ?></a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box-footer text-center">
+                            <a href="https://bbs.dbshop.net/forum.php?mod=forumdisplay&fid=2" class="uppercase"><?php echo $this->translate('查看更多新闻'); ?></a>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('系统信息'); ?></h3>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <th width="15%"><?php echo $this->translate('系统版本'); ?></th>
+                                <td width="35%"><?php echo DBERP_VERSION; ?></td>
+                                <th width="15%"><?php echo $this->translate('授权信息'); ?></th>
+                                <td>
+                                    <?php if ($this->dberpAuth == 1) { ?>
+                                        <span class="label bg-blue"><?php echo $this->translate('已授权'); ?></span>
+                                    <?php } else { ?>
+                                        <?php echo $this->translate('未授权'); ?> <a href="https://www.dberp.net/" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i> <?php echo $this->translate('获取授权'); ?></a>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><?php echo $this->translate('PHP版本'); ?></th>
+                                <td><?php echo phpversion(); ?></td>
+                                <th><?php echo $this->translate('官方网站'); ?></th>
+                                <td><a href="https://www.dberp.net/" target="_blank">https://www.dberp.net/</a></td>
+                            </tr>
+                            <tr>
+                                <th><?php echo $this->translate('在线手册'); ?></th>
+                                <td><a href="https://docs.dberp.net/" target="_blank">https://docs.dberp.net/</a></td>
+                                <th><?php echo $this->translate('官方论坛'); ?></th>
+                                <td><a href="https://bbs.loongdom.cn/" target="_blank">https://bbs.loongdom.cn/</a></td>
+                            </tr>
+                            <tr>
+                                <th><?php echo $this->translate('官方QQ群'); ?></th>
+                                <td>737830419</td>
+                                <th><?php echo $this->translate('功能定制'); ?></th>
+                                <td class="small">
+                                    QQ：298863992<br>
+                                    微信：17334027662
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>

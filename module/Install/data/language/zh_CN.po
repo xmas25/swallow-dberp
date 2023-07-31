@@ -1,0 +1,244 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: "
+"DBShop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: "
+"2022-07-13 17:40+0800\n"
+"PO-Revision-Date: "
+"2022-07-13 17:40+0800\n"
+"Last-Translator: Baron "
+"<baron@loongdom.cn>\n"
+"Language-Team: DBShop "
+"<baron@loongdom.cn>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; "
+"charset=UTF-8\n"
+"Content-Transfer-"
+"Encoding: 8bit\n"
+"X-Poedit-KeywordsList: "
+"translate\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-SourceCharset: "
+"UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: src/Controller/InstallController.php:74
+msgid "GD库未安装"
+msgstr ""
+
+#: src/Validator/DatabaseValidator.php:32
+msgid "这不是一个标准输入值"
+msgstr ""
+
+#: src/Validator/DatabaseValidator.php:33
+msgid ""
+"数据库连接失败，请检查您的"
+"数据库连接信息"
+msgstr ""
+
+#: src/Validator/DatabaseValidator.php:34
+msgid ""
+"InnoDB类型必须开启，DBShop"
+"系统才能正常安装，有些环境"
+"默认没有开启InnoDB，请手动"
+"进行开启"
+msgstr ""
+
+#: view/install/install/index.phtml:45
+msgid "同意协议，继续安装"
+msgstr ""
+
+#: view/install/install/index.phtml:46
+msgid "不同意协议，取消安装"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:10
+msgid ""
+"DBERP系统安装信息填写"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:16
+msgid "数据库服务器"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:23
+msgid "数据库名称"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:27
+msgid ""
+"数据库需要提前建立，系统不"
+"会自动创建"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:31
+msgid "数据库用户名"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:38
+msgid "数据库密码"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:45
+msgid "数据库连接端口"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:53
+msgid "管理员信息"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:57
+msgid "管理员账号"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:64
+msgid "管理员邮箱"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:71
+msgid "管理员密码"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:78
+msgid "再次输入管理员密码"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:86
+msgid "公司信息"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:90
+#: view/install/install/install-finish.phtml:11
+msgid "公司名称"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:97
+msgid "所在时区"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:104
+msgid "安装提示"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:105
+#, php-format
+msgid ""
+"当数据库中已经存在DBERP系"
+"统数据表时，安装时会删除已"
+"有的DBERP数据表，重新写入"
+"DBERP初始化数据表。%s安装"
+"操作对同一数据库中的其他系"
+"统数据表不会产生任何影"
+"响%s。"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:110
+msgid "点击安装"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:150
+msgid ""
+"数据库服务器地址不能为空!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:153
+msgid "数据库名称不能为空!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:156
+msgid ""
+"数据库用户名不能为空!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:159
+msgid "数据库密码不能为空!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:162
+msgid "数据库端口不能为空!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:165
+msgid "管理员账号不能为空!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:168
+msgid "管理员密码不能为空!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:169
+msgid "管理员密码最少6位!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:172
+msgid "确认密码不能为空!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:173
+msgid "两次输入的密码不同!"
+msgstr ""
+
+#: view/install/install/install-erp.phtml:176
+msgid "网站名称不能为空!"
+msgstr ""
+
+#: view/install/install/install-finish.phtml:5
+msgid "DBERP系统安装完成"
+msgstr ""
+
+#: view/install/install/install-finish.phtml:15
+msgid "系统管理员帐号"
+msgstr ""
+
+#: view/install/install/install-finish.phtml:19
+msgid "系统管理员密码"
+msgstr ""
+
+#: view/install/install/install-finish.phtml:25
+msgid "点击登录系统"
+msgstr ""
+
+#: view/install/install/next-step.phtml:5
+msgid "DBERP安装环境检测"
+msgstr ""
+
+#: view/install/install/next-step.phtml:11
+msgid "服务器系统"
+msgstr ""
+
+#: view/install/install/next-step.phtml:12
+msgid "WEB服务器"
+msgstr ""
+
+#: view/install/install/next-step.phtml:15
+msgid "PHP版本"
+msgstr ""
+
+#: view/install/install/next-step.phtml:16
+msgid "GD库"
+msgstr ""
+
+#: view/install/install/next-step.phtml:20
+msgid "目录权限"
+msgstr ""
+
+#: view/install/install/next-step.phtml:41
+msgid "扩展依赖性检查"
+msgstr ""
+
+#: view/install/install/next-step.phtml:64
+msgid "返回上一步"
+msgstr ""
+
+#: view/install/install/next-step.phtml:65
+msgid "继续下一步"
+msgstr ""
+
+#: view/install/install/next-step.phtml:67
+msgid ""
+"请设置满足条件的安装环境"
+"后，点此按钮刷新"
+msgstr ""

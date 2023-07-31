@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th colspan="2" class="text-center">
+            <h3><?php echo $this->translate('DBERP系统安装完成'); ?></h3>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th width="35%" class="text-right"><?php echo $this->translate('公司名称'); ?></th>
+        <td><?php echo $this->shopName; ?></td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('系统管理员帐号'); ?></th>
+        <td><?php echo $this->adminUser; ?></td>
+    </tr>
+    <tr>
+        <th class="text-right"><?php echo $this->translate('系统管理员密码'); ?></th>
+        <td><?php echo $this->adminPassword; ?></td>
+    </tr>
+    </tbody>
+</table>
+<p class="text-center">
+    <a href="<?php echo $this->basePath('/'); ?>" class="btn btn-large btn-primary"><?php echo $this->translate('点击登录系统'); ?></a>&nbsp;&nbsp;&nbsp;&nbsp;
+</p>

@@ -1,0 +1,262 @@
+<div class="content-wrapper">
+    <?php
+    $form = $this->form;
+    $form->prepare();
+
+    $goodsForm = $this->goodsForm;
+    $goodsForm->prepare();
+
+    $form->get('warehouseOrderSn')->setAttributes([
+        'placeholder' => $this->translate('入库单号')
+    ]);
+
+    $form->get('warehouseOrderInfo')->setAttributes([
+        'placeholder' => $this->translate('备注')
+    ]);
+
+    ?>
+    <?php echo $this->form()->openTag($form); ?>
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('erp-stock'); ?>" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> <?php echo $this->translate('返回入库列表'); ?></a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> <?php echo $this->translate('入库'); ?></button>
+            <?php echo $this->HelpUrl('otherImport'); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo isset($orderInfo) ? $this->translate('编辑采购订单') : $this->translate('添加入库'); ?></h3>
+                    </div>
+
+                    <div class="box-body">
+                        <?php echo $this->formElementErrors($form->get('dberp_csrf'), ['class'=>'error-message']); ?>
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('入库单号'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('warehouseOrderSn')); ?>
+                                    <?php echo $this->formElementErrors($form->get('warehouseOrderSn'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('仓库'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('warehouseId')); ?>
+                                    <?php echo $this->formElementErrors($form->get('warehouseId'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('备注'); ?>
+                                    <?php echo $this->formElement($form->get('warehouseOrderInfo')); ?>
+                                    <?php echo $this->formElementErrors($form->get('warehouseOrderInfo'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <?php
+                        $goodsForm = $this->goodsForm;
+                        ?>
+                        <div class="box-header">
+                            <h4 class="box-title"><?php echo $this->translate('入库商品'); ?></h4>
+                            &nbsp;&nbsp;
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" onclick="addMoreGoods();"><i class="fa fa-plus"></i> <?php echo $this->translate('点击添加商品'); ?></button>
+                            <?php echo $this->formElementErrors($goodsForm->get('goodsId'), ['class'=>'error-message']); ?>
+                            <?php echo $this->formElementErrors($goodsForm->get('goodsPrice'), ['class'=>'error-message']); ?>
+                            <?php echo $this->formElementErrors($goodsForm->get('goodsBuyNum'), ['class'=>'error-message']); ?>
+                            <?php echo $this->formElementErrors($goodsForm->get('goodsTax'), ['class'=>'error-message']); ?>
+                            <?php echo $this->formElementErrors($goodsForm->get('goodsAmount'), ['class'=>'error-message']); ?>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th width="15%"><?php echo $this->translate('商品编号'); ?></th>
+                                    <th><?php echo $this->translate('商品名称'); ?></th>
+                                    <th><?php echo $this->translate('商品规格'); ?></th>
+                                    <th width="5%"><?php echo $this->translate('单位'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('入库单价'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('入库数量'); ?></th>
+                                    <th width="8%"><?php echo $this->translate('税金'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('入库总价'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('操作'); ?></th>
+                                </tr>
+                                </thead>
+
+                                <?php
+                                if(isset($orderInfo)) {
+                                    foreach ($this->orderGoods as $goodsValue) {
+                                        ?>
+                                        <tr id="tr_id_<?php echo $goodsValue->getGoodsId(); ?>">
+                                            <td>
+                                                <input type="hidden" name="goodsId[]" value="<?php echo $goodsValue->getGoodsId(); ?>">
+                                                <?php echo $this->escapeHtml($goodsValue->getGoodsNumber()); ?>
+                                            </td>
+                                            <td><?php echo $this->escapeHtml($goodsValue->getGoodsName()); ?></td>
+                                            <td><?php echo $this->escapeHtml($goodsValue->getGoodsSpec()); ?></td>
+                                            <td><?php echo $this->escapeHtml($goodsValue->getGoodsUnit()); ?></td>
+                                            <td><input type="text" min="0" oninput="insertGoodsPrice(<?php echo $goodsValue->getGoodsId(); ?>);" id="goods_price_<?php echo $goodsValue->getGoodsId();?>" name="goodsPrice[]" class="form-control" value="<?php echo $this->erpCurrencyFormat($goodsValue->getPGoodsPrice(), ''); ?>" ></td>
+                                            <td><input type="number" min="1" oninput="insertGoodsPrice(<?php echo $goodsValue->getGoodsId(); ?>);" id="goods_buy_num_<?php echo $goodsValue->getGoodsId(); ?>" name="goodsBuyNum[]" class="form-control" value="<?php echo $goodsValue->getPGoodsBuyNum(); ?>"></td>
+                                            <td><input type="text" min="0" oninput="insertGoodsPrice(<?php echo $goodsValue->getGoodsId(); ?>);" id="goods_tax_<?php echo $goodsValue->getGoodsId();?>" name="goodsTax[]" class="form-control" value="<?php echo $this->erpCurrencyFormat($goodsValue->getPGoodsTax(), ''); ?>" ></td>
+                                            <td><input type="text" oninput="sumAmount();" id="goods_amount_<?php echo $goodsValue->getGoodsId(); ?>" name="goodsAmount[]" class="form-control" value="<?php echo $this->erpCurrencyFormat($goodsValue->getPGoodsAmount(), ''); ?>"></td>
+                                            <td>
+                                                <button type="button" onclick="deleteGoods(<?php echo $goodsValue->getGoodsId(); ?>);" class="btn btn-danger"><?php echo $this->translate('删除'); ?></button>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                                <tr id="tr-end">
+                                    <td colspan="7"></td>
+                                    <td colspan="2"><b><?php echo $this->translate('采购金额合计'); ?>：</b><span id="order-amount"><?php echo (isset($orderInfo) ? $this->erpCurrencyFormat($orderInfo->getPOrderAmount(), '') : 0); ?></span></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="box-footer">
+                        <?php echo $this->formElement($form->get('dberp_csrf')); ?>
+                        <button type="submit" class="btn btn-primary col-md-offset-4"><i class="fa fa-check"></i> <?php echo $this->translate('入库'); ?></button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <?php echo $this->form()->closeTag(); ?>
+
+    <div class="modal fade" id="modalDefault">
+        <div class="modal-dialog" style="width: 800px;" id="addGoodsListBody">
+
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#<?php echo $form->getName(); ?>").validate({
+            rules: {
+                warehouseOrderSn: {
+                    required: true
+                },
+                warehouseId: {
+                    required: true,
+                    min: 1
+                }
+            },
+            messages: {
+                warehouseOrderSn: {
+                    required: "<?php echo $this->translate('入库单号不能为空！'); ?>"
+                },
+                warehouseId: {
+                    required: "<?php echo $this->translate('请选择仓库！'); ?>",
+                    min: "<?php echo $this->translate('请选择仓库！'); ?>"
+                }
+            },
+            submitHandler: function(form) {
+                if(typeof($("input[name='goodsId[]']").val()) == "undefined") {
+                    layer.msg('<?php echo $this->translate('请添加采购商品！'); ?>');
+                    return false;
+                }
+                form.submit();
+            }
+        });
+    });
+
+    function addSelectGoods(goodsId) {
+        if(goodsId == '') {
+            layer.msg('<?php echo $this->translate('请填写需要添加的商品名称！'); ?>');
+        } else {
+            var insertState = true;
+            $("input[name='goodsId[]']").each(function () {
+                if($(this).val() == goodsId) {
+                    insertState = false;
+                }
+            });
+            if(!insertState) {
+                layer.msg('<?php echo $this->translate('该商品已经添加！'); ?>');
+                return false;
+            }
+
+            $.post("<?php echo $this->url('goods', ['action' => 'goodsIdSearch']); ?>", {goodsId: goodsId}, function (data) {
+                if(data.state == 'ok') {
+
+                    var htmlStr = '<tr id="tr_id_'+data.result.goodsId+'">';
+                    htmlStr += '<td><input type="hidden" name="goodsId[]" value="'+data.result.goodsId+'">'+data.result.goodsNumber+'</td>';
+                    htmlStr += '<td>'+data.result.goodsName+'</td>';
+                    htmlStr += '<td>'+data.result.goodsSpec+'</td>';
+                    htmlStr += '<td>'+data.result.unitName+'</td>';
+                    htmlStr += '<td><input type="text" min="0" oninput="insertGoodsPrice('+data.result.goodsId+');" id="goods_price_'+data.result.goodsId+'" name="goodsPrice[]" class="form-control" value="0"></td>';
+                    htmlStr += '<td><input type="number" min="1" oninput="insertGoodsPrice('+data.result.goodsId+');" id="goods_buy_num_'+data.result.goodsId+'" name="goodsBuyNum[]" class="form-control col-sm-6" value="1"></td>';
+                    htmlStr += '<td><input type="text" min="0" oninput="insertGoodsPrice('+data.result.goodsId+');" id="goods_tax_'+data.result.goodsId+'" name="goodsTax[]" class="form-control" value="0"></td>';
+                    htmlStr += '<td><input type="text" oninput="sumAmount();" id="goods_amount_'+data.result.goodsId+'" name="goodsAmount[]" class="form-control" value="0"></td>';
+                    htmlStr += '<td><button type="button" onclick="deleteGoods('+data.result.goodsId+');" class="btn btn-danger"><?php echo $this->translate('删除'); ?></button></td>';
+                    htmlStr += '</tr>';
+
+                    $('#tr-end').before(htmlStr);
+
+                    $('#goodsSearch').val('');
+                    $('#selectedGoodsId').val('');
+                }
+            })
+        }
+    }
+
+    function insertGoodsPrice(id) {
+        var goodsPrice  = $('#goods_price_'+id).val();
+        goodsPrice  = goodsPrice == '' ? 0 : parseFloat(goodsPrice);
+        var goodsTax    = $('#goods_tax_'+id).val();
+        goodsTax    = goodsTax == '' ? 0 : parseFloat(goodsTax);
+        var goodsNum    = $('#goods_buy_num_'+id).val();
+        goodsNum    = goodsNum == '' ? 1 : parseInt(goodsNum);
+
+        var goodsAmount = goodsPrice * goodsNum + goodsTax;
+        $('#goods_amount_'+id).val(erpNumber(goodsAmount, 2));
+
+        sumAmount();
+    }
+
+    function sumAmount() {
+        var orderAmount = 0;
+        $("input[name='goodsAmount[]']").each(function () {
+            orderAmount = orderAmount + parseFloat($(this).val());
+        });
+        $('#order-amount').html(erpNumber(orderAmount, 2));
+    }
+
+    function deleteGoods(goodsId) {
+        $('#tr_id_'+goodsId).remove();
+        sumAmount();
+    }
+
+    function addMoreGoods() {
+        $('#modalDefault').modal('show');
+        dberpAjaxList('<?php echo $this->url('goods', ['action' => 'ajaxGoodsSearch']);?>', 'addGoodsListBody');
+    }
+
+    function addMoreSelectGoods() {
+        $("input[name='selectGoodsId[]']").each(function () {
+            if(this.checked) {
+                addSelectGoods(this.value);
+            }
+        });
+        $('#modalDefault').modal('hide');
+    }
+
+    function searchGoods() {
+        dberpAjaxList('<?php echo $this->url('goods', ['action' => 'ajaxGoodsSearch']);?>?searchGoodsName='+$('#searchGoodsName').val(), 'addGoodsListBody');
+    }
+</script>

@@ -1,0 +1,306 @@
+<aside class="main-sidebar">
+    <section class="sidebar">
+
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="<?php echo $this->basePath('css/admin/img/avatar.png'); ?>" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p><?php echo $this->currentAdmin('admin_name'); ?></p>
+                <a href="#"><?php echo $this->currentAdmin('admin_group_name'); ?></a>
+            </div>
+        </div>
+
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="treeview <?php if($this->moduleName == 'Admin' && $this->controllerName != 'HomeController') echo 'active'; ?>">
+                <a href="javascript:;">
+                    <i class="fa fa-cogs"></i><span><?php echo $this->translate('系统'); ?></span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li <?php echo $this->controllerName == 'SystemController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('admin-system', ['action'=> 'index']); ?>">
+                            <?php echo $this->translate('系统设置'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo ($this->controllerName == 'AdminController' ? 'class="active"' : ''); ?>>
+                        <a href="<?php echo $this->url('admin', ['action'=> 'index']); ?>">
+                            <?php echo $this->translate('管理员'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'AdminGroupController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('admin-group', ['action'=> 'adminGroupList']); ?>">
+                            <?php echo $this->translate('管理员组'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'RegionController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('region'); ?>">
+                            <?php echo $this->translate('地区管理'); ?>
+                        </a>
+                    </li>
+                    <?php if ($this->shopServiceState == null || $this->shopServiceState == 1) { ?>
+                        <li <?php echo $this->controllerName == 'AppController' ? 'class="active"' : ''; ?>>
+                            <a href="<?php echo $this->url('app'); ?>">
+                                <?php echo $this->translate('商城绑定'); ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <li <?php echo $this->controllerName == 'ServiceBindController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('service-bind'); ?>"><?php echo $this->translate('服务绑定'); ?></a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'UpdateController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('update'); ?>"><?php echo $this->translate('系统更新'); ?></a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'OperLogController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('oper-log'); ?>">
+                            <?php echo $this->translate('操作日志'); ?>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview <?php echo $this->moduleName == 'Store' ? 'active' : ''; ?>">
+                <a href="javascript:;">
+                    <i class="fa fa-database"></i><span><?php echo $this->translate('基础数据'); ?></span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li <?php echo $this->controllerName == 'GoodsController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('goods'); ?>">
+                            <?php echo $this->translate('商品'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'GoodsCategoryController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('goods-category'); ?>">
+                            <?php echo $this->translate('商品分类'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'BrandController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('brand'); ?>">
+                            <?php echo $this->translate('商品品牌'); ?>
+                        </a>
+                    </li>
+                    <!--li class="treeview <?php if(in_array($this->controllerName, ['GoodsSpecController', 'GoodsSpecGroupController'])) echo 'active menu-open'; ?>">
+                        <a href="#"><?php echo $this->translate('商品规格'); ?>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li <?php echo $this->controllerName == 'GoodsSpecGroupController' ? 'class="active"' : ''; ?>>
+                                <a href="<?php echo $this->url('goods-spec-group'); ?>"><?php echo $this->translate('规格分组'); ?></a>
+                            </li>
+                            <li <?php echo $this->controllerName == 'GoodsSpecController' ? 'class="active"' : ''; ?>>
+                                <a href="<?php echo $this->url('goods-spec'); ?>"><?php echo $this->translate('规格信息'); ?></a>
+                            </li>
+                        </ul>
+                    </li-->
+                    <li <?php echo $this->controllerName == 'UnitController' ? 'class="active"' : ''; ?>>
+                    <a href="<?php echo $this->url('unit'); ?>">
+                        <?php echo $this->translate('计量单位'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'WarehouseController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('warehouse'); ?>">
+                            <?php echo $this->translate('仓库'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'PositionController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('position'); ?>">
+                            <?php echo $this->translate('仓位'); ?>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="treeview <?php echo $this->moduleName == 'Stock' ? 'active menu-open' : ''; ?>">
+                <a href="javascript:;">
+                    <i class="fa fa-cubes"></i><span><?php echo $this->translate('库存'); ?></span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li <?php echo $this->controllerName == 'IndexController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('erp-stock'); ?>">
+                            <?php echo $this->translate('其他入库'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'ExWarehouseController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('stock-ex'); ?>">
+                            <?php echo $this->translate('其他出库'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'StockCheckController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('stock-check'); ?>">
+                            <?php echo $this->translate('库存盘点'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'StockTransferController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('stock-transfer'); ?>">
+                            <?php echo $this->translate('库间调拨'); ?>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="treeview <?php echo $this->moduleName == 'Purchase' ? 'active' : ''; ?>">
+                <a href="javascript:;">
+                    <i class="fa fa-bars"></i><span><?php echo $this->translate('采购'); ?></span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li <?php echo $this->controllerName == 'OrderController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('p-order'); ?>">
+                            <?php echo $this->translate('采购订单'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'WarehouseOrderController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('warehouse-order'); ?>">
+                            <?php echo $this->translate('采购入库单'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'OrderReturnController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('order-return'); ?>">
+                            <?php echo $this->translate('采购退货单'); ?>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="treeview <?php echo $this->moduleName == 'Sales' ? 'active' : ''; ?>">
+                <a href="javascript:;">
+                    <i class="fa fa-th"></i><span><?php echo $this->translate('销售'); ?></span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li <?php echo $this->controllerName == 'SalesOrderController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('sales-order'); ?>">
+                            <?php echo $this->translate('销售订单'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'SalesSendOrderController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('sales-send-order'); ?>">
+                            <?php echo $this->translate('销售发货单'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'SalesOrderReturnController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('sales-order-return'); ?>">
+                            <?php echo $this->translate('销售退货单'); ?>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <?php if ($this->shopServiceState == null || $this->shopServiceState == 1) { ?>
+                <li class="treeview <?php echo $this->moduleName == 'Shop' ? 'active' : ''; ?>">
+                    <a href="javascript:;">
+                        <i class="fa fa-shopping-cart"></i><span><?php echo $this->translate('商城'); ?></span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li <?php echo $this->controllerName == 'IndexController' ? 'class="active"' : ''; ?>>
+                            <a href="<?php echo $this->url('app-shop'); ?>">
+                                <?php echo $this->translate('商城订单'); ?>
+                            </a>
+                        </li>
+                        <li <?php echo $this->controllerName == 'OrderGoodsController' ? 'class="active"' : ''; ?>>
+                            <a href="<?php echo $this->url('app-shop-order-goods'); ?>">
+                                <?php echo $this->translate('订单商品'); ?>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            <?php } ?>
+            <li class="treeview <?php echo $this->moduleName == 'Customer' ? 'active' : ''; ?>">
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-user"></i><span><?php echo $this->translate('客户'); ?></span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li <?php echo $this->controllerName == 'CustomerController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('customer');?>">
+                            <?php echo $this->translate('客户'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'CustomerCategoryController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('customer-category'); ?>">
+                            <?php echo $this->translate('客户分类'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'SupplierController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('supplier'); ?>">
+                            <?php echo $this->translate('供应商'); ?>
+                        </a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'SupplierCategoryController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('supplier-category'); ?>">
+                            <?php echo $this->translate('供应商分类'); ?>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview <?php echo $this->moduleName == 'Finance' ? 'active' : ''; ?>">
+                <a href="javascript:;">
+                    <i class="fa fa-money"></i><span><?php echo $this->translate('资金'); ?></span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li <?php echo $this->controllerName == 'PayableController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('finance-payable'); ?>">
+                            <?php echo $this->translate('应付账款'); ?></a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'ReceivablesController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('accounts-receivable'); ?>">
+                            <?php echo $this->translate('应收账款'); ?>
+                        </a>
+                    </li>
+                    <!--li>
+                        <a href="">
+                            <?php echo $this->translate('其他应付账款'); ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <?php echo $this->translate('其他应收账款'); ?>
+                        </a>
+                    </li-->
+                </ul>
+            </li>
+            <!--li class="treeview <?php echo $this->moduleName == 'Report' ? 'active' : ''; ?>">
+                <a href="javascript:;">
+                    <i class="fa fa-pie-chart"></i><span><?php echo $this->translate('报表'); ?></span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li <?php echo $this->controllerName == 'IndexController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('report');?>"><?php echo $this->translate('销售'); ?></a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'ReportStockController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('report-stock');?>"><?php echo $this->translate('库存'); ?></a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'ReportPurchaseController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('report-purchase');?>"><?php echo $this->translate('采购'); ?></a>
+                    </li>
+                    <li <?php echo $this->controllerName == 'ReportFinanceController' ? 'class="active"' : ''; ?>>
+                        <a href="<?php echo $this->url('report-finance');?>"><?php echo $this->translate('资金'); ?></a>
+                    </li>
+
+                </ul>
+            </li-->
+
+        </ul>
+    </section>
+</aside>

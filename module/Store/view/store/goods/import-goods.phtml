@@ -1,0 +1,76 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right" id="dbshop-menu-top">
+            <a href="<?php echo $this->url('goods');?>" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> <?php echo $this->translate('返回商品列表'); ?></a>
+            <?php echo $this->HelpUrl('importGoods'); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('批量导入商品'); ?></h3>
+                    </div>
+                    <?php
+                    $form = $this->form;
+                    $form->prepare();
+                    ?>
+                    <?php echo $this->form()->openTag($form); ?>
+                    <div class="box-body">
+                        <?php echo $this->partial('layout/messages'); ?>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><?php echo $this->translate('上传Excel文件'); ?><span class="must_add_value">*</span></label>
+                            <div class="col-sm-4">
+                                <?php echo $this->formElement($form->get('importFile')); ?>
+                                <?php echo $this->formElementErrors($form->get('importFile'), ['class'=>'error-message']); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><?php echo $this->translate('例子文件'); ?></label>
+                            <div class="col-sm-6">
+                                <a href="<?php echo $this->basePath('upload/common/importGoods.xlsx'); ?>" class="btn btn-default"><i class="fa fa-cloud-download" aria-hidden="true"></i> <?php echo $this->translate('点击下载例子文件'); ?></a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> <?php echo $this->translate('点击导入商品'); ?></button>
+                            </div>
+                        </div>
+                    </div>
+                    <?php echo $this->form()->closeTag(); ?>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#<?php echo $form->getName(); ?>").validate({
+            rules: {
+                importFile: {
+                    required: true
+                }
+            },
+            messages: {
+                importFile: {
+                    required: "<?php echo $this->translate('导入文件不能为空!'); ?>"
+                }
+            },
+            submitHandler:function(form){
+                layer.msg('商品正在导入……，请不要关闭当前页面', {
+                    icon: 16
+                    ,shade: 0.01
+                    ,time: 900000
+                });
+                form.submit();
+            }
+        });
+    });
+</script>

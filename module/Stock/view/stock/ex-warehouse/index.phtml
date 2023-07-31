@@ -1,0 +1,118 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('stock-ex', ['action'=> 'add']);?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> <?php echo $this->translate('添加出库'); ?></a>
+            <?php echo $this->HelpUrl('otherEx'); ?>
+        </h1>
+
+    </section>
+
+    <section class="content">
+        <?php echo $this->partial('layout/messages'); ?>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box erp-box">
+
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr class="erp-bg-thead">
+                                <th><?php echo $this->translate('出库单号'); ?>-<?php echo $this->translate('单数：').$this->orderList->getTotalItemCount(); ?></th>
+                                <th><?php echo $this->translate('金额'); ?></th>
+                                <th><?php echo $this->translate('仓库'); ?></th>
+                                <th width="18%"><?php echo $this->translate('备注'); ?></th>
+                                <th><?php echo $this->translate('时间'); ?></th>
+                                <th width="12%"><?php echo $this->translate('操作'); ?></th>
+                            </tr>
+                            <?php
+                            $sForm = $this->searchForm;
+                            $sForm->prepare();
+                            ?>
+                            <?php echo  $this->form()->openTag($sForm); ?>
+                            <tr>
+                                <td>
+                                    <?php echo  $this->formElement($sForm->get('warehouse_order_sn')); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('warehouse_order_sn'), ['class'=>'error-message']); ?>
+                                </td>
+                                <td>
+                                    <p>
+                                        <?php echo  $this->formElement($sForm->get('start_amount')); ?>
+                                    </p>
+                                    <div>
+                                        <?php echo  $this->formElement($sForm->get('end_amount')); ?>
+                                    </div>
+                                    <?php echo $this->formElementErrors($sForm->get('start_amount'), ['class'=>'error-message']); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('end_amount'), ['class'=>'error-message']); ?>
+                                </td>
+                                <td>
+                                    <?php echo  $this->formElement($sForm->get('warehouse_id')); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('warehouse_id'), ['class'=>'error-message']); ?>
+                                </td>
+                                <td>
+                                    <?php echo  $this->formElement($sForm->get('warehouse_order_info')); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('warehouse_order_info'), ['class'=>'error-message']); ?>
+                                </td>
+                                <td>
+                                    <p>
+                                        <?php echo  $this->formElement($sForm->get('start_time')); ?>
+                                    </p>
+                                    <div>
+                                        <?php echo  $this->formElement($sForm->get('end_time')); ?>
+                                    </div>
+                                    <?php echo $this->formElementErrors($sForm->get('start_time'), ['class'=>'error-message']); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('end_time'), ['class'=>'error-message']); ?>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i></button>
+                                    <?php
+                                    $formData = $sForm->getData();
+                                    if(!empty(array_filter($formData))
+                                        || $formData['warehouse_id'] != '') { ?>
+                                        <a href="<?php echo $this->url('stock-ex');?>" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></a>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <?php echo  $this->form()->closeTag(); ?>
+                            </thead>
+
+                            <?php if(isset($this->orderList) && $this->orderList->getTotalItemCount() > 0) { foreach ($this->orderList as $order) { ?>
+                                <tr>
+                                    <td><?php echo $this->escapeHtml($order->getExWarehouseOrderSn()); ?></td>
+                                    <td><?php echo $this->erpCurrencyFormat($order->getExWarehouseOrderAmount()); ?></td>
+                                    <td><?php echo $this->escapeHtml($order->getOneWarehouse()->getWarehouseName()); ?></td>
+                                    <td><?php echo $this->escapeHtml($order->getExWarehouseOrderInfo()); ?></td>
+                                    <td><?php echo date("Y-m-d H:i", $order->getExAddTime()); ?></td>
+                                    <td>
+                                        <a href="<?php echo  $this->url('stock-ex',
+                                            ['action'=>'view', 'id'=>$order->getExWarehouseOrderId()]); ?>"
+                                           class="btn btn-xs btn-info"><i class="fa fa-info-circle"></i> <?php echo $this->translate('查看'); ?>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php } } else { ?>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="6"><?php echo $this->translate('暂无出库信息'); ?></td>
+                                </tr>
+                                </tfoot>
+                            <?php } ?>
+                        </table>
+                    </div>
+                    <div class="box-footer clearfix">
+                        <?php echo $this->paginationControl($this->orderList, 'Sliding', 'layout/page', ['route' => 'stock-ex']); ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</div>
+<script type="text/javascript">
+    laydate.render({elem: '#start_time'});
+    laydate.render({elem: '#end_time'});
+</script>

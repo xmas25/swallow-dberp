@@ -1,0 +1,269 @@
+<div class="content-wrapper">
+    <?php
+    $form = $this->form;
+    $form->prepare();
+
+    $form->get('supplierCode')->setAttributes([
+        'placeholder' => $this->translate('供应商编码')
+    ]);
+
+    $form->get('supplierName')->setAttributes([
+        'placeholder' => $this->translate('供应商名称')
+    ]);
+
+    $form->get('supplierSort')->setAttributes([
+        'placeholder' => $this->translate('供应商排序')
+    ]);
+
+    $form->get('supplierAddress')->setAttributes([
+        'placeholder' => $this->translate('详细地址')
+    ]);
+
+    $form->get('supplierEmail')->setAttributes([
+        'placeholder' => $this->translate('电子邮箱')
+    ]);
+
+    $form->get('supplierContacts')->setAttributes([
+        'placeholder' => $this->translate('联系人')
+    ]);
+
+    $form->get('supplierPhone')->setAttributes([
+        'placeholder' => $this->translate('手机')
+    ]);
+
+    $form->get('supplierTelephone')->setAttributes([
+        'placeholder' => $this->translate('座机')
+    ]);
+
+    $form->get('supplierBank')->setAttributes([
+        'placeholder' => $this->translate('开户银行')
+    ]);
+
+    $form->get('supplierBankAccount')->setAttributes([
+        'placeholder' => $this->translate('开户行账号')
+    ]);
+
+    $form->get('supplierTax')->setAttributes([
+        'placeholder' => $this->translate('税号')
+    ]);
+
+    $form->get('supplierInfo')->setAttributes([
+        'placeholder' => $this->translate('备注')
+    ]);
+    ?>
+    <?php echo $this->form()->openTag($form); ?>
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('supplier');?>" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> <?php echo $this->translate('返回供应商分类列表'); ?></a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> <?php echo $this->translate('保存供应商'); ?></button>
+            <?php echo (isset($supplier) ? $this->HelpUrl('supplierEdit') : $this->HelpUrl('supplierAdd')); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo ((isset($supplier) && $supplier->getSupplierId()) ? $this->translate('编辑供应商') : $this->translate('添加供应商')); ?></h3>
+                    </div>
+
+                    <div class="box-body">
+                        <?php echo $this->formElementErrors($form->get('dberp_csrf'), ['class'=>'error-message']); ?>
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('供应商分类'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('supplierCategoryId')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierCategoryId'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('供应商名称'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('supplierName')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierName'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('供应商编码'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('supplierCode')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierCode'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('联系人'); ?>
+                                    <?php echo $this->formElement($form->get('supplierContacts')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierContacts'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('手机号码'); ?>
+                                    <?php echo $this->formElement($form->get('supplierPhone')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierPhone'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('座机号码'); ?>
+                                    <?php echo $this->formElement($form->get('supplierTelephone')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierTelephone'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('电子邮箱'); ?>
+                                    <?php echo $this->formElement($form->get('supplierEmail')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierEmail'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('地区'); ?><span class="must_add_value">*</span>
+                                    <div class="controls" id="region">
+                                        <?php if(isset($supplier)) { ?>
+                                            <span class="show_region_value"><?php echo $supplier->getRegionValues();?></span>
+                                            <button type="button" onclick="regionEdit();" class="btn btn-success btn-xs show_region_value"><i class="fa fa-pencil"></i> <?php echo $this->translate('修改'); ?></button>
+                                        <?php } ?>
+                                        <select name="show_address_area" class="form-control input-sm" id="show_address_area" style="width:100px;height:30px;line-height: 30px;display: inline;<?php echo isset($supplier) ? 'display: none' : '';?>">
+                                            <option value=""><?php echo $this->translate('请选择'); ?></option>
+                                            <?php if ($this->region and !empty($this->region)) {
+                                                foreach ($this->region as $value) {
+                                                    ?>
+                                                    <option
+                                                            value="<?php echo $value->getRegionId(); ?>"><?php echo $value->getRegionName(); ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                        <?php echo $this->formElement($form->get('regionId')); ?>
+                                        <?php echo $this->formElementErrors($form->get('regionId'), ['class'=>'error-message']); ?>
+
+                                        <?php echo $this->formElement($form->get('regionValues')); ?>
+                                        <?php echo $this->formElementErrors($form->get('regionValues'), ['class'=>'error-message']); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('详细地址'); ?>
+                                    <?php echo $this->formElement($form->get('supplierAddress')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierAddress'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('开户银行'); ?>
+                                    <?php echo $this->formElement($form->get('supplierBank')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierBank'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('开户账号'); ?>
+                                    <?php echo $this->formElement($form->get('supplierBankAccount')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierBankAccount'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('税号'); ?>
+                                    <?php echo $this->formElement($form->get('supplierTax')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierTax'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('排序'); ?>
+                                    <?php echo $this->formElement($form->get('supplierSort')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierSort'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-8 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('备注'); ?>
+                                    <?php echo $this->formElement($form->get('supplierInfo')); ?>
+                                    <?php echo $this->formElementErrors($form->get('supplierInfo'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <?php echo $this->formElement($form->get('dberp_csrf')); ?>
+                        <button type="submit" class="btn btn-primary col-md-offset-4"><i class="fa fa-check"></i> <?php echo $this->translate('保存供应商'); ?></button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+    <?php echo $this->form()->closeTag(); ?>
+
+</div>
+<script type="text/javascript">
+    var SITE_REGION_URL = '<?php echo $this->url('region', ['action' => 'ajaxRegion']);?>';
+    var AREA_SELECT_LANG = '<?php echo $this->translate('请选择'); ?>';
+
+    regionInit("region");
+
+    $(document).ready(function() {
+        $("#<?php echo $form->getName(); ?>").validate({
+            rules: {
+                supplierCategoryId: {
+                    required: true,
+                    min: 1
+                },
+                supplierName: {
+                    required: true
+                },
+                supplierCode: {
+                    required: true
+                },
+                show_address_area: {
+                    required: true
+                }
+            },
+            messages: {
+                supplierCategoryId: {
+                    required: "<?php echo $this->translate('请选择供应商分类！'); ?>",
+                    min: "<?php echo $this->translate('请选择供应商分类！'); ?>"
+                },
+                supplierName: {
+                    required: "<?php echo $this->translate('请填写供应商名称！'); ?>"
+                },
+                supplierCode: {
+                    required: "<?php echo $this->translate('请填写供应商编码！'); ?>"
+                },
+                show_address_area: {
+                    required: "<?php echo $this->translate('请选择地区！'); ?>"
+                }
+            }
+        });
+    });
+</script>

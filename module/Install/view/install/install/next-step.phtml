@@ -1,0 +1,69 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th colspan="4" class="text-center">
+            <h3><?php echo $this->translate('DBERP安装环境检测'); ?></h3>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th width="25%"><?php echo $this->translate('服务器系统'); ?></th><td width="25%"><?php echo $this->osVersion; ?></td>
+        <th width="25%"><?php echo $this->translate('WEB服务器'); ?></th><td width="25%"><?php echo $this->webVersion; ?></td>
+    </tr>
+    <tr>
+        <th><?php echo $this->translate('PHP版本'); ?></th><td><?php echo $this->phpVersion; ?></td>
+        <th><?php echo $this->translate('GD库'); ?></th><td><?php echo $this->gdVersion; ?></td>
+    </tr>
+    <tr>
+        <th colspan="4" class="text-center">
+            <h4><?php echo $this->translate('目录权限'); ?></h4>
+        </th>
+    </tr>
+    <?php
+        $okStr= '<span class="text-success"><i class="fa fa-check" aria-hidden="true"></i></span>';
+        $noStr= '<span class="text-danger"><i class="fa fa-times" aria-hidden="true"></i></span>';
+        $kNum = count($this->checkDirArray['dirItem']) - 1;
+        $i    = 0;
+        foreach ($this->checkDirArray['dirItem'] as $dKey => $dValue) {
+        $cNum = $i%2; if ($i == 0) echo '<tr>';
+        if ($cNum == 0 && $i != 0) echo '</tr><tr>';
+        if ($kNum == $i) {
+        ?>
+            <th><?php echo $dKey; ?></th><td><?php echo isset($this->checkDirArray['checkDirItem'][$dKey]) ? $okStr : $noStr; ?></td>
+            </tr>
+        <?php } else { ?>
+            <th><?php echo $dKey; ?></th><td><?php echo isset($this->checkDirArray['checkDirItem'][$dKey]) ? $okStr : $noStr; ?></td>
+        <?php } $i++; ?>
+    <?php } ?>
+    <tr>
+        <th colspan="4" class="text-center">
+            <h4><?php echo $this->translate('扩展依赖性检查'); ?></h4>
+        </th>
+    </tr>
+    <tr>
+        <th>file_get_contents</th><td><?php echo $this->fileGetContents ? $okStr : $noStr; ?></td>
+        <th>file_put_contents</th><td><?php echo $this->filePutContents ? $okStr : $noStr; ?></td>
+    </tr>
+    <tr>
+        <th>Fileinfo</th><td><?php echo $this->finfoOpen ? $okStr : $noStr; ?></td>
+        <th>intl</th><td><?php echo $this->intlOpen ? $okStr : $noStr; ?></td>
+    </tr>
+    <tr>
+        <th>PDO MySQL</th><td><?php echo $this->pdoOpen ? $okStr : $noStr; ?></td>
+        <th>CURL</th><td><?php echo $this->curlOpen ? $okStr : $noStr; ?></td>
+    </tr>
+    <tr>
+        <th>SSL</th><td><?php echo $this->sslOpen ? $okStr : $noStr; ?></td>
+        <th></th><td></td>
+    </tr>
+    </tbody>
+</table>
+<p class="text-center">
+    <?php if ($this->checkState) { ?>
+        <a href="<?php echo $this->url('erp-install'); ?>" class="btn btn-large btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> <?php echo $this->translate('返回上一步'); ?></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<?php echo $this->url('erp-install', ['action' => 'installErp']); ?>" class="btn btn-large btn-primary"><i class="fa fa-arrow-right" aria-hidden="true"></i> <?php echo $this->translate('继续下一步'); ?></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <?php } else { ?>
+        <a href="<?php echo $this->serverUrl(true); ?>" class="btn btn-large btn-warning"><?php echo $this->translate('请设置满足条件的安装环境后，点此按钮刷新'); ?></a>
+    <?php } ?>
+</p>

@@ -1,0 +1,127 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('admin', ['action'=> 'add']);?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> <?php echo $this->translate('添加管理员'); ?></a>
+            <?php echo $this->HelpUrl('adminList'); ?>
+        </h1>
+
+    </section>
+
+    <section class="content">
+        <?php echo $this->partial('layout/messages'); ?>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box erp-box">
+
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr class="erp-bg-thead">
+                                <th width="8%">ID</th>
+                                <th><?php echo $this->translate('管理员'); ?></th>
+                                <th width="20%"><?php echo $this->translate('电子邮箱'); ?></th>
+                                <th width="10%"><?php echo $this->translate('管理组'); ?></th>
+                                <th width="8%"><?php echo $this->translate('状态'); ?></th>
+                                <th width="15%"><?php echo $this->translate('添加时间'); ?></th>
+                                <th width="18%"><?php echo $this->translate('操作'); ?></th>
+                            </tr>
+                            <?php
+                            $sForm = $this->searchForm;
+                            $sForm->prepare();
+                            $sForm->get('admin_state')->setEmptyOption('选择状态');
+                            ?>
+                            <?php echo $this->form()->openTag($sForm); ?>
+                            <tr>
+                                <td>
+                                    <p>
+                                        <?php echo $this->formElement($sForm->get('start_id')); ?>
+                                    </p>
+                                    <div>
+                                        <?php echo $this->formElement($sForm->get('end_id')); ?>
+                                    </div>
+                                    <?php echo $this->formElementErrors($sForm->get('start_id'), ['class'=>'error-message']);?>
+                                    <?php echo $this->formElementErrors($sForm->get('end_id'), ['class'=>'error-message']);?>
+                                </td>
+                                <td>
+                                    <?php echo $this->formElement($sForm->get('admin_name')); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('admin_name'), ['class'=>'error-message']);?>
+                                </td>
+                                <td>
+                                    <?php echo $this->formElement($sForm->get('admin_email')); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('admin_email'), ['class'=>'error-message']);?>
+                                </td>
+                                <td>
+                                    <?php echo $this->formElement($sForm->get('admin_group_id')); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('admin_group_id'), ['class'=>'error-message']);?>
+                                </td>
+                                <td>
+                                    <?php echo $this->formElement($sForm->get('admin_state')); ?>
+                                    <?php echo $this->formElementErrors($sForm->get('admin_state'), ['class'=>'error-message']);?>
+                                </td>
+                                <td>
+                                    <p>
+                                        <?php echo $this->formElement($sForm->get('start_time')); ?>
+                                    </p>
+                                    <div>
+                                        <?php echo $this->formElement($sForm->get('end_time')); ?>
+                                    </div>
+                                    <?php echo $this->formElementErrors($sForm->get('start_time'), ['class'=>'error-message']);?>
+                                    <?php echo $this->formElementErrors($sForm->get('end_time'), ['class'=>'error-message']);?>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-search"></i></button>
+                                    <?php
+                                    $formData = $sForm->getData();
+                                    if(!empty(array_filter($formData)) || $formData['admin_state'] != '') { ?>
+                                        <a href="<?php echo $this->url('admin');?>" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></a>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <?php echo $this->form()->closeTag(); ?>
+                            </thead>
+                            <tbody>
+                            <?php if($this->adminUser) foreach ($this->adminUser as $user) { ?>
+                                <tr>
+                                    <td><?php echo $user->getAdminId(); ?></td>
+                                    <td><?php echo $this->escapeHtml($user->getAdminName()); ?></td>
+                                    <td><?php echo $this->escapeHtml($user->getAdminEmail()); ?></td>
+                                    <td><?php echo $this->escapeHtml($user->getGroup()->getAdminGroupName()); ?></td>
+                                    <td><?php echo $user->getAdminState() ==1 ? $this->translate('启用') : '<label class="text-danger">'.$this->translate('禁用').'</label>'?></td>
+                                    <td><?php echo date("Y-m-d", $user->getAdminAddTime()); ?></td>
+                                    <td>
+                                        <a href="<?php echo $this->url('admin',
+                                            ['action'=>'edit', 'id'=>$user->getAdminId()]); ?>"
+                                           class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> <?php echo $this->translate('编辑'); ?></a>
+                                        <a href="<?php echo $this->url('admin',
+                                            ['action'=>'changePassword', 'id'=>$user->getAdminId()]); ?>"
+                                           class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> <?php echo $this->translate('修改密码'); ?></a>
+                                        <?php if($user->getAdminId() != 1) { ?>
+                                            <a href="javascript:;" onclick="deleteConfirm('<?php echo $this->translate('您确实要删除该账户吗？'); ?>', '<?php echo $this->url('admin', ['action'=>'delete', 'id'=>$user->getAdminId()], ['query' => ['qToken' => $this->common()->getCsrfValue()]]); ?>');" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> <?php echo $this->translate('删除'); ?></a>
+                                        <?php } ?>
+
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="box-footer clearfix">
+                    <?php echo $this->paginationControl($this->adminUser,
+                        'Sliding',
+                        'layout/page',
+                        ['route' => 'admin']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<script type="text/javascript">
+    laydate.render({elem: '#start_time'});
+    laydate.render({elem: '#end_time'});
+</script>

@@ -1,0 +1,79 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('stock-transfer', ['action'=> 'add']);?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> <?php echo $this->translate('添加库间调拨'); ?></a>
+            <?php echo $this->HelpUrl('stockTransfer'); ?>
+        </h1>
+
+    </section>
+
+    <section class="content">
+        <?php echo $this->partial('layout/messages'); ?>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box erp-box">
+
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr class="erp-bg-thead">
+                                <th><?php echo $this->translate('调拨单号'); ?>-<?php echo $this->translate('单数：').$this->stockTransferList->getTotalItemCount(); ?></th>
+                                <th><?php echo $this->translate('状态'); ?></th>
+                                <th><?php echo $this->translate('调出仓库'); ?></th>
+                                <th><?php echo $this->translate('调入仓库'); ?></th>
+                                <th><?php echo $this->translate('调拨时间'); ?></th>
+                                <th><?php echo $this->translate('完成时间'); ?></th>
+                                <th width="15%"><?php echo $this->translate('备注'); ?></th>
+                                <th width="18%"><?php echo $this->translate('操作'); ?></th>
+                            </tr>
+                            </thead>
+
+                            <?php if(isset($this->stockTransferList) && $this->stockTransferList->getTotalItemCount() > 0) { foreach ($this->stockTransferList as $transferValue) { ?>
+                                <tr>
+                                    <td><?php echo $this->escapeHtml($transferValue->getTransferSn()); ?></td>
+                                    <td><?php echo $this->stockHelper()->stockTransferState($transferValue->getTransferState(), 2); ?></td>
+                                    <td><?php echo $this->escapeHtml($transferValue->getOutOneWarehouse()->getWarehouseName()); ?></td>
+                                    <td><?php echo $this->escapeHtml($transferValue->getInOneWarehouse()->getWarehouseName()); ?></td>
+                                    <td><?php echo date("Y-m-d", $transferValue->getTransferAddTime()); ?></td>
+                                    <td><?php echo empty($transferValue->getTransferFinishTime()) ? $this->translate('未完成') : date("Y-m-d", $transferValue->getTransferFinishTime()); ?></td>
+                                    <td><?php echo $this->escapeHtml($transferValue->getTransferInfo()); ?></td>
+                                    <td>
+                                        <a href="<?php echo $this->url('stock-transfer',
+                                            ['action'=>'view', 'id'=>$transferValue->getTransferId()]); ?>"
+                                           class="btn btn-xs btn-info"><i class="fa fa-info-circle"></i> <?php echo $this->translate('查看'); ?>
+                                        </a>
+                                        <?php if($transferValue->getTransferState() == 0) { ?>
+                                            <a href="<?php echo $this->url('stock-transfer', ['action'=>'authPassStockTransfer', 'id'=>$transferValue->getTransferId()], ['query' => ['qToken' => $this->common()->getCsrfValue()]]); ?>" class="btn btn-xs btn-success"><i class="fa fa-check"></i> <?php echo $this->translate('审核调拨'); ?></a>
+                                            <a href="javascript:;" onclick="deleteConfirm('<?php echo $this->translate('您确实要删除该库间调拨单吗？'); ?>', '<?php echo $this->url('stock-transfer', ['action'=>'delete', 'id'=>$transferValue->getTransferId()], ['query' => ['qToken' => $this->common()->getCsrfValue()]]); ?>');" class="btn btn-xs btn-danger">
+                                                <i class="fa fa-trash"></i> <?php echo $this->translate('删除'); ?>
+                                            </a>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                            <?php } } else { ?>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="6"><?php echo $this->translate('暂无调拨信息'); ?></td>
+                                </tr>
+                                </tfoot>
+                            <?php } ?>
+                        </table>
+                    </div>
+                    <div class="box-footer clearfix">
+                        <?php echo $this->paginationControl($this->stockTransferList, 'Sliding', 'layout/page', ['route' => 'stock-transfer']); ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</div>
+<script type="text/javascript">
+    laydate.render({elem: '#start_time'});
+    laydate.render({elem: '#end_time'});
+</script>

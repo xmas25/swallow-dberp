@@ -1,0 +1,62 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+        <h1 class="pull-right">
+            <a href="https://store.loongdom.cn/shop-goods/index/30" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> <?php echo $this->translate('下载更新包手动更新'); ?></a>
+            <?php echo $this->HelpUrl('erpUpdate'); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+        <?php echo $this->partial('layout/messages'); ?>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box shop-box">
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table shop-table table-hover">
+                            <thead>
+                            <tr class="shop-bg-thead">
+                                <th width="45%"><?php echo $this->translate('更新包名称'); ?></a></th>
+                                <th width="20%"><?php echo $this->translate('更新包版本'); ?></th>
+                                <th width="20%"><?php echo $this->translate('系统当前版本'); ?></th>
+                                <th width="15%"><?php echo $this->translate('操作'); ?></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    if (isset($this->result['code'])) {
+                                    if ($this->result['code'] == 200) {
+                                        if (empty($this->result['result']['packageList'])) echo '<tr><td colspan="4"><h4 class="text-green">'.$this->translate('您的系统是最新系统').'</h4></td></tr>';
+                                    ?>
+                                <?php
+                                        $packageKeyNum = count($this->result['result']['packageList']) - 1;
+                                        foreach ($this->result['result']['packageList'] as $packageKey => $packageValue) { ?>
+                                <tr>
+                                    <td><?php echo $this->escapeHtml($packageValue['packageUpdateName']); ?></td>
+                                    <td><?php echo $this->escapeHtml($packageValue['versionName']); ?></td>
+                                    <td><?php echo DBERP_VERSION; ?></td>
+                                    <td>
+                                        <?php if ($packageKey == $packageKeyNum) { ?>
+                                            <a href="<?php echo $this->url('update', ['action' => 'updatePackageInfo', 'id' => $packageValue['packageId']]); ?>" class="btn btn-xs btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> <?php echo $this->translate('点击查看并更新'); ?></a>
+                                        <?php } else { ?>
+                                            <span class="label label-warning"><i class="fa fa-arrow-up" aria-hidden="true"></i> <?php echo $this->translate('请自下而上依次更新'); ?></span>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                                <?php } } else { ?>
+                                <tr>
+                                    <td colspan="4">
+                                        <h4 class="text-red"><?php echo $this->result['message']; ?></h4>
+                                    </td>
+                                </tr>
+                                <?php } } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>

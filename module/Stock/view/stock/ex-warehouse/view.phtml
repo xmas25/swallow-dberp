@@ -1,0 +1,103 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('stock-ex');?>" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> <?php echo $this->translate('返回其他出库单列表'); ?></a>
+            <button type="button" onclick="toPrint();" class="btn btn-primary btn-sm"><i class="fa fa-print" aria-hidden="true"></i> <?php echo $this->translate('点击打印'); ?></button>
+            <?php echo $this->HelpUrl('otherEx'); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12" id="to-print-info">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('其他出库单'); ?></h3>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <b><?php echo $this->translate('出库单号'); ?>：</b><?php echo $this->escapeHtml($this->exWarehouseOrder->getExWarehouseOrderSn());?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <b><?php echo $this->translate('仓库'); ?>：</b><?php echo $this->escapeHtml($this->exWarehouseOrder->getOneWarehouse()->getWarehouseName());?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <b><?php echo $this->translate('状态'); ?>：</b><?php echo $this->translate('已出库'); ?>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <b><?php echo $this->translate('出库时间'); ?>：</b><?php echo date("Y-m-d H:i:s", $this->exWarehouseOrder->getExAddTime());?>
+                                </div>
+                            </div>
+                            <div class="col-xs-8 form-group">
+                                <div class="col-sm-12">
+                                    <b><?php echo $this->translate('出库备注'); ?>：</b><?php echo $this->escapeHtml($this->exWarehouseOrder->getExWarehouseOrderInfo());?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-header">
+                            <h4 class="box-title"><?php echo $this->translate('出库商品'); ?></h4>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th width="15%"><?php echo $this->translate('商品编号'); ?></th>
+                                    <th width="20%"><?php echo $this->translate('商品名称'); ?></th>
+                                    <th><?php echo $this->translate('商品规格'); ?></th>
+                                    <th><?php echo $this->translate('单位'); ?></th>
+                                    <th><?php echo $this->translate('出库单价'); ?></th>
+                                    <th><?php echo $this->translate('出库数量'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('出库总价'); ?></th>
+                                </tr>
+                                </thead>
+                                <?php foreach ($this->orderGoods as $goodsValue) { ?>
+                                    <tr>
+                                        <td><?php echo $this->escapeHtml($goodsValue->getGoodsNumber()); ?></td>
+                                        <td><?php echo $this->escapeHtml($goodsValue->getGoodsName()); ?></td>
+                                        <td><?php echo $this->escapeHtml($goodsValue->getGoodsSpec()); ?></td>
+                                        <td><?php echo $this->escapeHtml($goodsValue->getGoodsUnit()); ?></td>
+                                        <td><?php echo $this->erpCurrencyFormat($goodsValue->getWarehouseGoodsPrice()); ?></td>
+                                        <td><?php echo $goodsValue->getWarehouseGoodsExNum(); ?></td>
+                                        <td><?php echo $this->erpCurrencyFormat($goodsValue->getWarehouseGoodsAmount()); ?></td>
+                                    </tr>
+                                <?php } ?>
+
+                                <tfoot>
+                                <tr>
+                                    <td colspan="5"></td>
+                                    <td colspan="2" class="text-right"><b><?php echo $this->translate('金额合计'); ?>：</b><span id="order-amount"><?php echo (isset($this->exWarehouseOrder) ? $this->erpCurrencyFormat($this->exWarehouseOrder->getExWarehouseOrderAmount()) : 0); ?></span></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+</div>

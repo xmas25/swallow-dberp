@@ -1,0 +1,1874 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DBErp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-01 00:13+0800\n"
+"PO-Revision-Date: 2022-11-01 00:13+0800\n"
+"Last-Translator: Baron <baron@loongdom.cn>\n"
+"Language-Team: DBErp <baron@loongdom.cn>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../..\n"
+
+#: ../../src/AdminTrait/AdminTrait.php:55
+msgid "您的网址无法从公网正常访问，不能进行继续操作。"
+msgstr ""
+
+#: ../../src/AdminTrait/AdminTrait.php:56
+msgid "包下载失败，无法更新。"
+msgstr ""
+
+#: ../../src/AdminTrait/AdminTrait.php:59
+msgid "下载的包与原始包不匹配，无法更新。"
+msgstr ""
+
+#: ../../src/AdminTrait/AdminTrait.php:66
+msgid "无可安装文件。"
+msgstr ""
+
+#: ../../src/AdminTrait/AdminTrait.php:72
+#: ../../src/AdminTrait/AdminTrait.php:75
+msgid "无写入权限"
+msgstr ""
+
+#: ../../src/AdminTrait/AdminTrait.php:83
+#, php-format
+msgid "无法正常安装，请检查%s对应的目录是否有相关权限"
+msgstr ""
+
+#: ../../src/Controller/AdminController.php:92
+#, php-format
+msgid "管理员 %s 添加成功！"
+msgstr ""
+
+#: ../../src/Controller/AdminController.php:93
+#: ../../src/Controller/AdminController.php:129
+#: ../../src/Controller/AdminController.php:162
+#: ../../src/Controller/AdminController.php:194
+#: ../../view/admin/admin/index.phtml:25 ../../view/layout/left-menu.phtml:30
+#: ../../view/partial/breadcrumb.phtml:12
+msgid "管理员"
+msgstr ""
+
+#: ../../src/Controller/AdminController.php:112
+#: ../../src/Controller/AdminController.php:148
+#: ../../src/Controller/AdminController.php:187
+msgid "该管理员不存在！"
+msgstr ""
+
+#: ../../src/Controller/AdminController.php:128
+#, php-format
+msgid "管理员 %s 编辑成功！"
+msgstr ""
+
+#: ../../src/Controller/AdminController.php:161
+#, php-format
+msgid "管理员 %s 密码修改成功！"
+msgstr ""
+
+#: ../../src/Controller/AdminController.php:181
+msgid "不能删除创始人！"
+msgstr ""
+
+#: ../../src/Controller/AdminController.php:193
+#, php-format
+msgid "管理员 %s 删除成功！"
+msgstr ""
+
+#: ../../src/Controller/AdminGroupController.php:95
+#, php-format
+msgid "管理员组 %s 添加成功！"
+msgstr ""
+
+#: ../../src/Controller/AdminGroupController.php:96
+#: ../../src/Controller/AdminGroupController.php:147
+#: ../../src/Controller/AdminGroupController.php:180
+#: ../../view/admin/admin-group/add-admin-group.phtml:34
+#: ../../view/admin/admin-group/admin-group-list.phtml:25
+#: ../../view/admin/admin/add.phtml:50 ../../view/layout/left-menu.phtml:35
+#: ../../view/partial/breadcrumb.phtml:33
+msgid "管理员组"
+msgstr ""
+
+#: ../../src/Controller/AdminGroupController.php:115
+msgid "该管理员组不可编辑！"
+msgstr ""
+
+#: ../../src/Controller/AdminGroupController.php:121
+#: ../../src/Controller/AdminGroupController.php:172
+msgid "该管理员组不存在！"
+msgstr ""
+
+#: ../../src/Controller/AdminGroupController.php:146
+#, php-format
+msgid "管理员组 %s 编辑成功！"
+msgstr ""
+
+#: ../../src/Controller/AdminGroupController.php:166
+msgid "该管理员组不能删除！"
+msgstr ""
+
+#: ../../src/Controller/AdminGroupController.php:179
+#, php-format
+msgid "管理员组 %s 删除成功！"
+msgstr ""
+
+#: ../../src/Controller/AdminGroupController.php:182
+#, php-format
+msgid "管理员组 %s 删除失败！该组不存在或该组下有管理员"
+msgstr ""
+
+#: ../../src/Controller/AppController.php:74
+#, php-format
+msgid "应用 %s 添加成功！"
+msgstr ""
+
+#: ../../src/Controller/AppController.php:75
+#: ../../src/Controller/AppController.php:112
+#: ../../src/Controller/AppController.php:151
+#: ../../view/layout/left-menu.phtml:46 ../../view/partial/breadcrumb.phtml:69
+msgid "商城绑定"
+msgstr ""
+
+#: ../../src/Controller/AppController.php:95
+#: ../../src/Controller/AppController.php:138
+msgid "该应用不存在！"
+msgstr ""
+
+#: ../../src/Controller/AppController.php:111
+#, php-format
+msgid "应用 %s 编辑成功！"
+msgstr ""
+
+#: ../../src/Controller/AppController.php:144
+msgid "应用下存在订单！"
+msgstr ""
+
+#: ../../src/Controller/AppController.php:150
+#, php-format
+msgid "应用 %s 删除成功！"
+msgstr ""
+
+#: ../../src/Controller/IndexController.php:87
+msgid "管理员登录"
+msgstr ""
+
+#: ../../src/Controller/OperLogController.php:52
+#: ../../view/admin/oper-log/index.phtml:32
+msgid "操作者级别"
+msgstr ""
+
+#: ../../src/Controller/OperLogController.php:85
+msgid "操作记录删除成功！"
+msgstr ""
+
+#: ../../src/Controller/OperLogController.php:86
+#: ../../view/layout/left-menu.phtml:58 ../../view/partial/breadcrumb.phtml:87
+msgid "操作日志"
+msgstr ""
+
+#: ../../src/Controller/RegionController.php:103
+msgid "地区添加成功！"
+msgstr ""
+
+#: ../../src/Controller/RegionController.php:104
+#: ../../src/Controller/RegionController.php:151
+#: ../../src/Controller/RegionController.php:177
+#: ../../src/Controller/RegionController.php:209
+#: ../../view/layout/left-menu.phtml:40 ../../view/partial/breadcrumb.phtml:51
+msgid "地区管理"
+msgstr ""
+
+#: ../../src/Controller/RegionController.php:114
+msgid "地区数据最多添加三级！"
+msgstr ""
+
+#: ../../src/Controller/RegionController.php:136
+#: ../../src/Controller/RegionController.php:196
+msgid "该地区不存在！"
+msgstr ""
+
+#: ../../src/Controller/RegionController.php:150
+#, php-format
+msgid "地区 %s 编辑成功！"
+msgstr ""
+
+#: ../../src/Controller/RegionController.php:176
+msgid "批量处理成功！"
+msgstr ""
+
+#: ../../src/Controller/RegionController.php:202
+#, php-format
+msgid "地区 %s 删除失败！其下级还有其他地区！"
+msgstr ""
+
+#: ../../src/Controller/RegionController.php:208
+#, php-format
+msgid "地区 %s 删除成功！"
+msgstr ""
+
+#: ../../src/Controller/ServiceBindController.php:49
+msgid "服务绑定成功!"
+msgstr ""
+
+#: ../../src/Controller/ServiceBindController.php:49
+#: ../../src/Controller/ServiceBindController.php:76
+#: ../../view/admin/service-bind/finish.phtml:16
+#: ../../view/admin/service-bind/index.phtml:20
+#: ../../view/layout/left-menu.phtml:51 ../../view/partial/breadcrumb.phtml:101
+msgid "服务绑定"
+msgstr ""
+
+#: ../../src/Controller/ServiceBindController.php:76
+msgid "服务解绑成功!"
+msgstr ""
+
+#: ../../src/Controller/SystemController.php:81
+msgid "系统设置 修改成功！"
+msgstr ""
+
+#: ../../src/Controller/SystemController.php:82
+#: ../../view/layout/left-menu.phtml:25 ../../view/partial/breadcrumb.phtml:96
+msgid "系统设置"
+msgstr ""
+
+#: ../../src/Controller/UpdateController.php:90
+msgid "更新包信息错误，无法进行更新。可能原因：本地测试更新。"
+msgstr ""
+
+#: ../../src/Controller/UpdateController.php:105
+#, php-format
+msgid "更新包 %s 更新完成!如果还有其他更新包，请继续更新。"
+msgstr ""
+
+#: ../../src/Controller/UpdateController.php:105
+#: ../../view/layout/left-menu.phtml:54 ../../view/partial/breadcrumb.phtml:106
+msgid "系统更新"
+msgstr ""
+
+#: ../../src/Controller/UpdateController.php:107
+msgid "更新完成"
+msgstr ""
+
+#: ../../src/Data/Common.php:173 ../../view/admin/admin/add.phtml:95
+#: ../../view/admin/admin/index.phtml:93 ../../view/admin/app/add.phtml:131
+#: ../../view/admin/app/index.phtml:36 ../../view/admin/system/index.phtml:64
+msgid "启用"
+msgstr ""
+
+#: ../../src/Data/Common.php:173 ../../view/admin/admin/index.phtml:93
+#: ../../view/admin/app/index.phtml:36
+msgid "禁用"
+msgstr ""
+
+#: ../../src/Data/Common.php:184
+msgid "DBShop商城系统"
+msgstr ""
+
+#: ../../src/Data/Common.php:185
+msgid "DBCart多语言商城系统"
+msgstr ""
+
+#: ../../src/Data/Common.php:186
+msgid "其他系统"
+msgstr ""
+
+#: ../../src/Data/Common.php:199 ../../src/Data/Common.php:218
+#: ../../src/Data/Common.php:247 ../../src/Data/Common.php:266
+msgid "已退货"
+msgstr ""
+
+#: ../../src/Data/Common.php:200 ../../src/Data/Common.php:248
+msgid "退货"
+msgstr ""
+
+#: ../../src/Data/Common.php:201
+msgid "未审核"
+msgstr ""
+
+#: ../../src/Data/Common.php:202
+msgid "已审核"
+msgstr ""
+
+#: ../../src/Data/Common.php:203
+msgid "待入库"
+msgstr ""
+
+#: ../../src/Data/Common.php:204
+msgid "已入库"
+msgstr ""
+
+#: ../../src/Data/Common.php:217 ../../src/Data/Common.php:265
+msgid "退货中"
+msgstr ""
+
+#: ../../src/Data/Common.php:231
+msgid "付款方式"
+msgstr ""
+
+#: ../../src/Data/Common.php:232 ../../view/layout/left-menu.phtml:261
+#: ../../view/partial/breadcrumb.phtml:385
+msgid "应付账款"
+msgstr ""
+
+#: ../../src/Data/Common.php:233
+msgid "现金付款"
+msgstr ""
+
+#: ../../src/Data/Common.php:234
+msgid "预付款"
+msgstr ""
+
+#: ../../src/Data/Common.php:249
+msgid "待确认"
+msgstr ""
+
+#: ../../src/Data/Common.php:250
+msgid "已确认"
+msgstr ""
+
+#: ../../src/Data/Common.php:251
+msgid "发货出库"
+msgstr ""
+
+#: ../../src/Data/Common.php:252
+msgid "确认收货"
+msgstr ""
+
+#: ../../src/Data/Common.php:279
+msgid "收款方式"
+msgstr ""
+
+#: ../../src/Data/Common.php:280 ../../view/layout/left-menu.phtml:265
+#: ../../view/partial/breadcrumb.phtml:402
+msgid "应收账款"
+msgstr ""
+
+#: ../../src/Data/Common.php:281
+msgid "现金收款"
+msgstr ""
+
+#: ../../src/Data/Common.php:282
+msgid "预存款"
+msgstr ""
+
+#: ../../src/Data/Common.php:294
+msgid "验货完成等待入库"
+msgstr ""
+
+#: ../../src/Data/Common.php:295
+msgid "验货完成直接入库"
+msgstr ""
+
+#: ../../src/Data/Common.php:307
+msgid "无"
+msgstr ""
+
+#: ../../src/Data/Common.php:308
+msgid "有"
+msgstr ""
+
+#: ../../src/Data/Common.php:321
+msgid "已取消"
+msgstr ""
+
+#: ../../src/Data/Common.php:322
+msgid "待付款"
+msgstr ""
+
+#: ../../src/Data/Common.php:323
+msgid "付款中"
+msgstr ""
+
+#: ../../src/Data/Common.php:324
+msgid "已付款"
+msgstr ""
+
+#: ../../src/Data/Common.php:325
+msgid "待发货"
+msgstr ""
+
+#: ../../src/Data/Common.php:326 ../../src/Data/Common.php:357
+msgid "已发货"
+msgstr ""
+
+#: ../../src/Data/Common.php:327
+msgid "订单完成"
+msgstr ""
+
+#: ../../src/Data/Common.php:340
+msgid "已盘点"
+msgstr ""
+
+#: ../../src/Data/Common.php:341
+msgid "未盘点"
+msgstr ""
+
+#: ../../src/Data/Common.php:354
+msgid "缺货"
+msgstr ""
+
+#: ../../src/Data/Common.php:355
+msgid "未匹配"
+msgstr ""
+
+#: ../../src/Data/Common.php:356
+msgid "已匹配"
+msgstr ""
+
+#: ../../src/Data/Common.php:358
+msgid "已确认收货"
+msgstr ""
+
+#: ../../src/Data/Common.php:371
+msgid "待调拨"
+msgstr ""
+
+#: ../../src/Data/Common.php:372 ../../src/Data/Common.php:387
+msgid "已调拨"
+msgstr ""
+
+#: ../../src/Data/Common.php:373
+msgid "部分已调拨"
+msgstr ""
+
+#: ../../src/Data/Common.php:386
+msgid "未调拨"
+msgstr ""
+
+#: ../../src/Data/Common.php:388
+msgid "库存不足，未调拨"
+msgstr ""
+
+#: ../../src/Form/SearchAdminForm.php:46 ../../src/Form/SearchRegionForm.php:47
+msgid "起始ID"
+msgstr ""
+
+#: ../../src/Form/SearchAdminForm.php:56 ../../src/Form/SearchRegionForm.php:57
+msgid "结束ID"
+msgstr ""
+
+#: ../../src/Form/SearchAdminForm.php:66
+msgid "管理员名称"
+msgstr ""
+
+#: ../../src/Form/SearchAdminForm.php:76 ../../view/admin/admin/add.phtml:18
+#: ../../view/admin/admin/add.phtml:66 ../../view/admin/admin/index.phtml:26
+msgid "电子邮箱"
+msgstr ""
+
+#: ../../src/Form/SearchAdminForm.php:110
+#: ../../src/Form/SearchOperLogForm.php:84
+msgid "起始时间"
+msgstr ""
+
+#: ../../src/Form/SearchAdminForm.php:120
+#: ../../src/Form/SearchOperLogForm.php:94
+msgid "结束时间"
+msgstr ""
+
+#: ../../src/Form/SearchOperLogForm.php:45
+#: ../../view/admin/oper-log/index.phtml:31
+msgid "操作者"
+msgstr ""
+
+#: ../../src/Form/SearchOperLogForm.php:64
+#: ../../view/admin/oper-log/index.phtml:34
+msgid "ip地址"
+msgstr ""
+
+#: ../../src/Form/SearchOperLogForm.php:74
+#: ../../view/admin/oper-log/index.phtml:35
+msgid "操作描述"
+msgstr ""
+
+#: ../../src/Form/SearchRegionForm.php:67 ../../view/admin/region/add.phtml:7
+#: ../../view/admin/region/add.phtml:41 ../../view/admin/region/index.phtml:36
+msgid "地区名称"
+msgstr ""
+
+#: ../../src/Plugin/AdminCommonPlugin.php:67
+msgid "不正确的请求！"
+msgstr ""
+
+#: ../../src/Plugin/AdminCommonPlugin.php:151
+msgid "选择商城"
+msgstr ""
+
+#: ../../src/Plugin/AdminCommonPlugin.php:168
+msgid "选择管理组"
+msgstr ""
+
+#: ../../src/Validator/ImageSuffixValidator.php:22
+msgid "图片内含有非法字符串"
+msgstr ""
+
+#: ../../src/Validator/ImageSuffixValidator.php:23
+msgid "错误的图片后缀"
+msgstr ""
+
+#: ../../src/Validator/ServiceBindValidator.php:43
+msgid "这不是一个标准输入值"
+msgstr ""
+
+#: ../../src/Validator/ServiceBindValidator.php:44
+msgid "该账户已经存在"
+msgstr ""
+
+#: ../../src/Validator/ServiceBindValidator.php:45
+msgid "网站标识码不存在，请在 https://member.loongdom.cn/ 创建"
+msgstr ""
+
+#: ../../src/Validator/ServiceBindValidator.php:46
+msgid "请求出错，无法绑定"
+msgstr ""
+
+#: ../../src/View/Helper/HelpUrl.php:154
+msgid "DBErp进销存系统教程"
+msgstr ""
+
+#: ../../src/View/Helper/HelpUrl.php:154
+#: ../../view/admin/service-bind/index.phtml:27
+msgid "新窗口打开"
+msgstr ""
+
+#: ../../src/View/Helper/HelpUrl.php:154
+msgid "查看教程"
+msgstr ""
+
+#: ../../view/admin/admin-group/add-admin-group.phtml:7
+msgid "管理员组名称"
+msgstr ""
+
+#: ../../view/admin/admin-group/add-admin-group.phtml:16
+msgid "返回管理员组列表"
+msgstr ""
+
+#: ../../view/admin/admin-group/add-admin-group.phtml:17
+#: ../../view/admin/admin-group/add-admin-group.phtml:85
+msgid "保存管理员组"
+msgstr ""
+
+#: ../../view/admin/admin-group/add-admin-group.phtml:28
+#: ../../view/partial/breadcrumb.phtml:43
+msgid "编辑管理员组"
+msgstr ""
+
+#: ../../view/admin/admin-group/add-admin-group.phtml:28
+#: ../../view/admin/admin-group/admin-group-list.phtml:7
+#: ../../view/partial/breadcrumb.phtml:40
+msgid "添加管理员组"
+msgstr ""
+
+#: ../../view/admin/admin-group/add-admin-group.phtml:43
+msgid "权限设置"
+msgstr ""
+
+#: ../../view/admin/admin-group/add-admin-group.phtml:46
+#: ../../view/admin/admin-group/add-admin-group.phtml:58
+#: ../../view/admin/region/index.phtml:107
+msgid "全选"
+msgstr ""
+
+#: ../../view/admin/admin-group/add-admin-group.phtml:107
+msgid "管理员组不能为空！"
+msgstr ""
+
+#: ../../view/admin/admin-group/admin-group-list.phtml:26
+#: ../../view/admin/admin/index.phtml:30 ../../view/admin/app/index.phtml:28
+#: ../../view/admin/region/index.phtml:38
+#: ../../view/admin/update/index.phtml:23
+msgid "操作"
+msgstr ""
+
+#: ../../view/admin/admin-group/admin-group-list.phtml:38
+#: ../../view/admin/admin/index.phtml:98 ../../view/admin/app/index.phtml:41
+#: ../../view/admin/region/index.phtml:86
+msgid "编辑"
+msgstr ""
+
+#: ../../view/admin/admin-group/admin-group-list.phtml:40
+msgid "您确实要删除该管理员组吗？"
+msgstr ""
+
+#: ../../view/admin/admin-group/admin-group-list.phtml:40
+#: ../../view/admin/admin/index.phtml:103 ../../view/admin/app/index.phtml:45
+#: ../../view/admin/region/index.phtml:97
+msgid "删除"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:9 ../../view/admin/admin/add.phtml:58
+#: ../../view/admin/admin/change-password.phtml:36
+msgid "管理员账号"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:21 ../../view/admin/admin/add.phtml:75
+#: ../../view/admin/admin/change-password.phtml:7
+#: ../../view/admin/admin/change-password.phtml:42
+msgid "管理员密码"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:24 ../../view/admin/admin/add.phtml:82
+#: ../../view/admin/admin/change-password.phtml:10
+#: ../../view/admin/admin/change-password.phtml:49
+msgid "确认密码"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:32
+#: ../../view/admin/admin/change-password.phtml:18
+msgid "返回管理员列表"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:33 ../../view/admin/admin/add.phtml:107
+msgid "保存管理员信息"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:44 ../../view/partial/breadcrumb.phtml:22
+msgid "编辑管理员"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:44 ../../view/admin/admin/index.phtml:7
+#: ../../view/partial/breadcrumb.phtml:19
+msgid "添加管理员"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:91 ../../view/admin/admin/index.phtml:28
+#: ../../view/admin/app/add.phtml:127 ../../view/admin/app/index.phtml:26
+#: ../../view/admin/service-bind/finish.phtml:33
+msgid "状态"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:146 ../../view/admin/admin/add.phtml:147
+msgid "请选择管理员组"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:150
+msgid "请输入管理员邮箱"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:151
+msgid "请输入正确的邮箱地址"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:156
+msgid "请输入管理员账号"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:159
+#: ../../view/admin/admin/change-password.phtml:85
+msgid "请输入管理员密码"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:162
+#: ../../view/admin/admin/change-password.phtml:88
+msgid "请输入确认密码"
+msgstr ""
+
+#: ../../view/admin/admin/add.phtml:163
+#: ../../view/admin/admin/change-password.phtml:89
+msgid "两次输入的密码不一致"
+msgstr ""
+
+#: ../../view/admin/admin/change-password.phtml:19
+#: ../../view/admin/admin/change-password.phtml:60
+#: ../../view/admin/admin/index.phtml:101
+#: ../../view/partial/breadcrumb.phtml:28
+msgid "修改密码"
+msgstr ""
+
+#: ../../view/admin/admin/change-password.phtml:30
+msgid "修改管理员密码"
+msgstr ""
+
+#: ../../view/admin/admin/index.phtml:27
+msgid "管理组"
+msgstr ""
+
+#: ../../view/admin/admin/index.phtml:29 ../../view/admin/app/index.phtml:27
+msgid "添加时间"
+msgstr ""
+
+#: ../../view/admin/admin/index.phtml:103
+msgid "您确实要删除该账户吗？"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:7 ../../view/admin/app/add.phtml:60
+#: ../../view/admin/app/index.phtml:24
+msgid "商城名称"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:11 ../../view/admin/app/add.phtml:68
+msgid "appId"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:15 ../../view/admin/app/add.phtml:81
+msgid "appSecret"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:19
+msgid "以https://或http://开头"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:23
+msgid "端口"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:33
+msgid "返回商城列表"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:34 ../../view/admin/app/add.phtml:143
+msgid "保存商城信息"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:45
+msgid "编辑商城"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:45 ../../view/admin/app/index.phtml:7
+#: ../../view/partial/breadcrumb.phtml:76
+msgid "添加商城"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:52
+msgid "商城类别"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:75 ../../view/admin/app/add.phtml:88
+msgid "点击系统生成"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:94
+msgid "商城地址"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:108
+msgid "商品绑定"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:119
+msgid "商品发货仓库"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:182
+msgid "商城名称不能为空！"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:185
+msgid "appId不能为空！"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:188
+msgid "APPSecret不能为空！"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:191
+msgid "商城url地址不能为空！"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:194
+msgid "端口不能为空！"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:195
+msgid "必须为数字！"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:196
+msgid "最小为1！"
+msgstr ""
+
+#: ../../view/admin/app/add.phtml:199
+msgid "商城类别不能为空！"
+msgstr ""
+
+#: ../../view/admin/app/index.phtml:25
+msgid "商城类型"
+msgstr ""
+
+#: ../../view/admin/app/index.phtml:44
+msgid "您确实要删除该商城吗？"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:13 ../../view/layout/header.phtml:43
+msgid "首页"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:14
+msgid "信息概览"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:23
+msgid "fileinfo 扩展未安装，会影响图片上传功能"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:23
+msgid "点击查看扩展安装方式"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:27
+msgid ""
+"fileinfo 扩展未安装，会影响图片上传功能。请点击页面内的fileinfo扩展安装方式进"
+"行安装。"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:33
+msgid "重要提示"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:34
+msgid ""
+"您还没有进行服务绑定，官方建议您优先进行服务绑定处理。绑定后，可以在线进行系"
+"统更新、插件安装等等，进一步对系统进行优化。"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:34
+msgid "点击去设置服务绑定"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:42
+msgid "更新提示"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:44
+msgid "您的系统有新的更新包啦!"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:44 ../../view/admin/home/index.phtml:47
+msgid "点击去更新"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:47
+msgid "您的扩展插件有更新啦!"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:60 ../../view/layout/left-menu.phtml:73
+#: ../../view/partial/breadcrumb.phtml:123
+msgid "商品"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:71 ../../view/layout/header.phtml:20
+#: ../../view/layout/left-menu.phtml:150 ../../view/layout/left-menu.phtml:295
+#: ../../view/partial/breadcrumb.phtml:241
+#: ../../view/partial/breadcrumb.phtml:580
+#: ../../view/partial/breadcrumb.phtml:584
+msgid "采购"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:84 ../../view/layout/header.phtml:23
+#: ../../view/layout/left-menu.phtml:176 ../../view/layout/left-menu.phtml:289
+#: ../../view/partial/breadcrumb.phtml:421
+#: ../../view/partial/breadcrumb.phtml:572
+msgid "销售"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:94 ../../view/admin/home/index.phtml:158
+#: ../../view/layout/header.phtml:29 ../../view/layout/left-menu.phtml:223
+#: ../../view/layout/left-menu.phtml:231
+#: ../../view/partial/breadcrumb.phtml:303
+#: ../../view/partial/breadcrumb.phtml:307
+msgid "客户"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:106 ../../view/layout/left-menu.phtml:158
+#: ../../view/partial/breadcrumb.phtml:245
+#: ../../view/partial/breadcrumb.phtml:281
+msgid "采购订单"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:114 ../../view/admin/home/index.phtml:155
+msgid "订单号"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:115 ../../view/admin/home/index.phtml:156
+msgid "订单金额"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:116 ../../view/admin/home/index.phtml:157
+msgid "订单状态"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:117 ../../view/layout/left-menu.phtml:241
+#: ../../view/partial/breadcrumb.phtml:343
+msgid "供应商"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:136
+#: ../../view/partial/breadcrumb.phtml:252
+msgid "添加采购订单"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:137
+#: ../../view/partial/breadcrumb.phtml:258
+msgid "查看采购订单"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:146 ../../view/layout/left-menu.phtml:184
+#: ../../view/partial/breadcrumb.phtml:425
+msgid "销售订单"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:176
+#: ../../view/partial/breadcrumb.phtml:435
+msgid "添加销售订单"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:177
+msgid "查看销售订单"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:189
+msgid "新闻动态"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:206
+msgid "查看更多新闻"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:214
+msgid "系统信息"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:220
+msgid "系统版本"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:222
+msgid "授权信息"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:225
+msgid "已授权"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:227
+msgid "未授权"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:227
+msgid "获取授权"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:232
+msgid "PHP版本"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:234 ../../view/layout/header.phtml:72
+msgid "官方网站"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:238
+msgid "在线手册"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:240
+msgid "官方论坛"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:244
+msgid "官方QQ群"
+msgstr ""
+
+#: ../../view/admin/home/index.phtml:246
+msgid "功能定制"
+msgstr ""
+
+#: ../../view/admin/home/not-authorized.phtml:72
+msgid "您无权访问该页面"
+msgstr ""
+
+#: ../../view/admin/home/not-authorized.phtml:75
+msgid "返回上一页"
+msgstr ""
+
+#: ../../view/admin/home/not-authorized.phtml:77
+msgid "返回后台首页"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:6 ../../view/admin/index/index.phtml:24
+msgid "进销存"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:6
+msgid "后台登录"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:28
+msgid "输入账号和密码进行登录"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:32
+msgid "账号或密码错误"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:40
+msgid "账号"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:43
+msgid "密码"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:46
+msgid "输入上面的验证码"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:49
+msgid "登 录"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:106
+msgid "请输入账号"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:111
+msgid "请输入密码"
+msgstr ""
+
+#: ../../view/admin/index/index.phtml:116
+msgid "请输入验证码"
+msgstr ""
+
+#: ../../view/admin/oper-log/index.phtml:8
+msgid "选择清除时间"
+msgstr ""
+
+#: ../../view/admin/oper-log/index.phtml:9
+msgid "一周前"
+msgstr ""
+
+#: ../../view/admin/oper-log/index.phtml:10
+msgid "一个月前"
+msgstr ""
+
+#: ../../view/admin/oper-log/index.phtml:11
+msgid "三个月前"
+msgstr ""
+
+#: ../../view/admin/oper-log/index.phtml:12
+msgid "半年前"
+msgstr ""
+
+#: ../../view/admin/oper-log/index.phtml:14
+msgid "删除日志"
+msgstr ""
+
+#: ../../view/admin/oper-log/index.phtml:33
+msgid "操作时间"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:7
+msgid "，可同时添加多个地区，一行一个"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:11 ../../view/admin/region/add.phtml:49
+#: ../../view/admin/region/index.phtml:37
+msgid "排序"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:23
+msgid "返回地区列表"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:24 ../../view/admin/region/add.phtml:62
+msgid "保存地区"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:35 ../../view/partial/breadcrumb.phtml:61
+msgid "编辑地区"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:35 ../../view/admin/region/index.phtml:15
+#: ../../view/partial/breadcrumb.phtml:58
+msgid "添加地区"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:89
+msgid "地区名称不能为空！"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:92
+msgid "排序不能为空！"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:93
+msgid "排序必须为数字！"
+msgstr ""
+
+#: ../../view/admin/region/add.phtml:94
+msgid "排序最小为1！"
+msgstr ""
+
+#: ../../view/admin/region/index.phtml:9
+msgid "返回顶级列表"
+msgstr ""
+
+#: ../../view/admin/region/index.phtml:10
+msgid "返回上一级列表"
+msgstr ""
+
+#: ../../view/admin/region/index.phtml:92
+msgid "查看下级"
+msgstr ""
+
+#: ../../view/admin/region/index.phtml:96
+msgid "您确实要删除该地区吗？"
+msgstr ""
+
+#: ../../view/admin/region/index.phtml:109
+msgid "选择状态"
+msgstr ""
+
+#: ../../view/admin/region/index.phtml:110
+msgid "更新排序"
+msgstr ""
+
+#: ../../view/admin/region/index.phtml:111
+msgid "地区删除"
+msgstr ""
+
+#: ../../view/admin/region/index.phtml:113
+msgid "更新"
+msgstr ""
+
+#: ../../view/admin/service-bind/finish.phtml:22
+msgid ""
+"如果系统更换了新域名，需要在珑大会员中心添加新域名，然后进行解绑并重新绑定。"
+msgstr ""
+
+#: ../../view/admin/service-bind/finish.phtml:26
+#: ../../view/admin/update/update-package-info.phtml:22
+msgid "已绑定域名"
+msgstr ""
+
+#: ../../view/admin/service-bind/finish.phtml:35
+msgid "服务已经绑定"
+msgstr ""
+
+#: ../../view/admin/service-bind/finish.phtml:39
+#: ../../view/admin/service-bind/index.phtml:30
+msgid "珑大会员账号"
+msgstr ""
+
+#: ../../view/admin/service-bind/finish.phtml:47
+msgid "点击解绑"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:26
+msgid ""
+"特别注意：底部保留官方版权信息，官方允许您免费(商用)使用本系统。如果修改版权"
+"信息，请向官方购买授权。"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:26
+msgid "点击查看授权购买"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:27
+msgid ""
+"服务绑定(永久免费)非常重要，绑定后可以在线 更新、安装插件，获取更多官方提供的"
+"便捷服务。"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:27
+msgid "服务绑定说明"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:27
+msgid "点击查看绑定方法"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:38
+msgid "网站标识码"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:47
+msgid "点击绑定"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:49
+msgid "无账号，点击新建 | 有账号，点击登录"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:74
+msgid "珑大会员账号不能为空!"
+msgstr ""
+
+#: ../../view/admin/service-bind/index.phtml:77
+msgid "网站标识码不能为空!"
+msgstr ""
+
+#: ../../view/admin/system/index.phtml:7 ../../view/admin/system/index.phtml:39
+msgid "公司名称"
+msgstr ""
+
+#: ../../view/admin/system/index.phtml:11
+msgid "填写网站备案号"
+msgstr ""
+
+#: ../../view/admin/system/index.phtml:19
+#: ../../view/admin/system/index.phtml:86
+msgid "保存设置"
+msgstr ""
+
+#: ../../view/admin/system/index.phtml:30
+msgid "基本设置"
+msgstr ""
+
+#: ../../view/admin/system/index.phtml:46
+msgid "网站备案号"
+msgstr ""
+
+#: ../../view/admin/system/index.phtml:53
+msgid "系统时区"
+msgstr ""
+
+#: ../../view/admin/system/index.phtml:60
+msgid "商城服务"
+msgstr ""
+
+#: ../../view/admin/update/index.phtml:6
+msgid "下载更新包手动更新"
+msgstr ""
+
+#: ../../view/admin/update/index.phtml:20
+#: ../../view/admin/update/update-package-info.phtml:28
+msgid "更新包名称"
+msgstr ""
+
+#: ../../view/admin/update/index.phtml:21
+#: ../../view/admin/update/update-package-info.phtml:34
+msgid "更新包版本"
+msgstr ""
+
+#: ../../view/admin/update/index.phtml:22
+msgid "系统当前版本"
+msgstr ""
+
+#: ../../view/admin/update/index.phtml:30
+msgid "您的系统是最新系统"
+msgstr ""
+
+#: ../../view/admin/update/index.phtml:41
+msgid "点击查看并更新"
+msgstr ""
+
+#: ../../view/admin/update/index.phtml:43
+msgid "请自下而上依次更新"
+msgstr ""
+
+#: ../../view/admin/update/no-bind-update.phtml:16
+msgid ""
+"查看系统更新包及在线更新服务，需要进行服务绑定后，才能进行操作。官方推荐，永"
+"久免费。"
+msgstr ""
+
+#: ../../view/admin/update/no-bind-update.phtml:16
+msgid "点击进行服务绑定"
+msgstr ""
+
+#: ../../view/admin/update/no-bind-update.phtml:17
+msgid "暂时不想进行服务绑定，要下载更新包到本地。"
+msgstr ""
+
+#: ../../view/admin/update/no-bind-update.phtml:17
+msgid "点击下载更新包手动更新"
+msgstr ""
+
+#: ../../view/admin/update/update-package-info.phtml:16
+#: ../../view/partial/breadcrumb.phtml:113
+msgid "更新包详情"
+msgstr ""
+
+#: ../../view/admin/update/update-package-info.phtml:40
+msgid "更新功能描述"
+msgstr ""
+
+#: ../../view/admin/update/update-package-info.phtml:48
+msgid "点击更新"
+msgstr ""
+
+#: ../../view/admin/update/update-package-info.phtml:61
+msgid "系统正在更新……，请不要关闭页面"
+msgstr ""
+
+#: ../../view/admin/update/update-package-info.phtml:68
+msgid "错误提示"
+msgstr ""
+
+#: ../../view/error/404.phtml:115 ../../view/error/404.phtml:156
+#: ../../view/error/index.phtml:76
+msgid "哎呀…您访问的页面不存在"
+msgstr ""
+
+#: ../../view/error/404.phtml:158 ../../view/error/index.phtml:119
+msgid "返回首页"
+msgstr ""
+
+#: ../../view/error/404.phtml:159 ../../view/error/index.phtml:120
+msgid "去官方论坛反馈一下"
+msgstr ""
+
+#: ../../view/error/index.phtml:117
+msgid "哎呀…出现了一个小问题"
+msgstr ""
+
+#: ../../view/layout/header.phtml:14 ../../view/layout/left-menu.phtml:17
+#: ../../view/partial/breadcrumb.phtml:8
+msgid "系统"
+msgstr ""
+
+#: ../../view/layout/header.phtml:17 ../../view/layout/left-menu.phtml:65
+msgid "基础数据"
+msgstr ""
+
+#: ../../view/layout/header.phtml:26 ../../view/layout/left-menu.phtml:119
+#: ../../view/layout/left-menu.phtml:292
+#: ../../view/partial/breadcrumb.phtml:500
+#: ../../view/partial/breadcrumb.phtml:576
+msgid "库存"
+msgstr ""
+
+#: ../../view/layout/header.phtml:33 ../../view/layout/left-menu.phtml:202
+#: ../../view/partial/breadcrumb.phtml:474
+msgid "商城"
+msgstr ""
+
+#: ../../view/layout/header.phtml:37 ../../view/layout/left-menu.phtml:253
+#: ../../view/layout/left-menu.phtml:298
+#: ../../view/partial/breadcrumb.phtml:381
+msgid "资金"
+msgstr ""
+
+#: ../../view/layout/header.phtml:40 ../../view/layout/left-menu.phtml:282
+#: ../../view/partial/breadcrumb.phtml:568
+msgid "报表"
+msgstr ""
+
+#: ../../view/layout/header.phtml:51
+msgid "应用商城"
+msgstr ""
+
+#: ../../view/layout/header.phtml:75
+msgid "交流论坛"
+msgstr ""
+
+#: ../../view/layout/header.phtml:78
+msgid "在线文档"
+msgstr ""
+
+#: ../../view/layout/header.phtml:85
+msgid "个人资料"
+msgstr ""
+
+#: ../../view/layout/header.phtml:88
+msgid "退出"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:78 ../../view/partial/breadcrumb.phtml:150
+msgid "商品分类"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:83 ../../view/partial/breadcrumb.phtml:168
+msgid "商品品牌"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:87
+msgid "商品规格"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:92
+msgid "规格分组"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:95
+msgid "规格信息"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:101
+#: ../../view/partial/breadcrumb.phtml:204
+msgid "计量单位"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:106
+#: ../../view/partial/breadcrumb.phtml:222
+msgid "仓库"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:111
+#: ../../view/partial/breadcrumb.phtml:186
+msgid "仓位"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:127
+#: ../../view/partial/breadcrumb.phtml:504
+msgid "其他入库"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:132
+#: ../../view/partial/breadcrumb.phtml:518
+msgid "其他出库"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:137
+#: ../../view/partial/breadcrumb.phtml:532
+msgid "库存盘点"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:142
+#: ../../view/partial/breadcrumb.phtml:552
+msgid "库间调拨"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:163
+msgid "采购入库单"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:168
+#: ../../view/partial/breadcrumb.phtml:266
+msgid "采购退货单"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:189
+#: ../../view/partial/breadcrumb.phtml:446
+msgid "销售发货单"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:194
+#: ../../view/partial/breadcrumb.phtml:458
+msgid "销售退货单"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:210
+msgid "商城订单"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:215
+#: ../../view/partial/breadcrumb.phtml:490
+msgid "订单商品"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:236
+#: ../../view/partial/breadcrumb.phtml:325
+msgid "客户分类"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:246
+#: ../../view/partial/breadcrumb.phtml:361
+msgid "供应商分类"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:270
+msgid "其他应付账款"
+msgstr ""
+
+#: ../../view/layout/left-menu.phtml:275
+msgid "其他应收账款"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:16
+msgid "管理员列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:25
+msgid "删除管理员"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:37
+msgid "管理员组列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:46
+msgid "删除管理员组"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:55
+msgid "地区列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:64
+msgid "删除地区"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:73
+msgid "商城列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:79
+msgid "编辑应用"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:82
+msgid "删除商城"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:91
+msgid "日志列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:110
+msgid "更新列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:119
+msgid "基本数据"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:127
+msgid "商品列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:130
+msgid "添加商品"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:133
+msgid "编辑商品"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:136
+msgid "批量导入商品"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:139
+msgid "删除商品"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:142
+msgid "采购价格趋势"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:145
+msgid "商品分布"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:154
+msgid "商品分类列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:157
+msgid "添加商品分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:160
+msgid "编辑商品分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:163
+msgid "删除商品分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:172
+msgid "品牌列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:175
+msgid "添加品牌"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:178
+msgid "编辑品牌"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:181
+msgid "删除品牌"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:190
+msgid "仓位列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:193
+msgid "添加仓位"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:196
+msgid "编辑仓位"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:199
+msgid "删除仓位"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:208
+msgid "单位列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:211
+msgid "添加单位"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:214
+msgid "编辑单位"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:217
+msgid "删除单位"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:226
+msgid "仓库列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:229
+msgid "添加仓库"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:232
+msgid "编辑仓库"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:235
+msgid "删除仓库"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:249
+msgid "采购订单列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:255
+msgid "编辑采购订单"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:261
+msgid "删除采购订单"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:270
+msgid "采购退货单列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:273
+msgid "采购退货详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:276
+msgid "采购退货"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:285
+msgid "采购入库单列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:288
+msgid "添加采购入库单"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:291
+msgid "编辑采购入库单"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:294
+msgid "删除采购入库单"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:297
+msgid "采购入库单详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:311
+msgid "客户列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:314
+msgid "添加客户"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:317
+msgid "编辑客户"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:320
+msgid "删除客户"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:329
+msgid "客户分类列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:332
+msgid "添加客户分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:335
+msgid "编辑客户分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:338
+msgid "删除客户分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:347
+msgid "供应商列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:350
+msgid "添加供应商"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:353
+msgid "编辑供应商"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:356
+msgid "删除供应商"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:365
+msgid "供应商分类列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:368
+msgid "添加供应商分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:371
+msgid "编辑供应商分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:374
+msgid "删除供应商分类"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:389
+msgid "应付账款列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:392
+msgid "应付账款详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:395
+msgid "付款操作"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:398
+msgid "付款记录"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:406
+msgid "应收账款列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:409
+msgid "应收账款详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:412
+msgid "收款操作"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:415
+msgid "收款记录"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:429
+msgid "销售订单列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:432
+msgid "销售订单详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:438
+msgid "编辑销售订单"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:441
+msgid "订单发货出库"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:450
+msgid "销售发货单列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:453
+msgid "发货订单详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:462
+msgid "销售退货单列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:465
+msgid "销售退货"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:468
+msgid "销售退货单详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:478
+msgid "订单"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:482
+msgid "订单列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:485
+msgid "商城订单详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:494
+msgid "订单商品列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:508
+msgid "入库列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:511
+msgid "添加入库"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:514
+#: ../../view/partial/breadcrumb.phtml:528
+msgid "查看详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:522
+msgid "出库列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:525
+msgid "添加出库"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:536
+msgid "盘点列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:539
+msgid "添加盘点"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:542
+msgid "编辑盘点"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:545
+msgid "删除盘点"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:548
+msgid "盘点详情"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:556
+msgid "库间调拨单列表"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:559
+msgid "添加库间调拨单"
+msgstr ""
+
+#: ../../view/partial/breadcrumb.phtml:562
+msgid "库间调拨单详情"
+msgstr ""

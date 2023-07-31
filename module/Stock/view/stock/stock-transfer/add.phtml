@@ -1,0 +1,263 @@
+<div class="content-wrapper">
+    <?php
+    $form = $this->form;
+    $form->prepare();
+
+    $goodsForm = $this->goodsForm;
+    $goodsForm->prepare();
+
+    $form->get('transferSn')->setAttributes([
+        'placeholder' => $this->translate('调拨单号')
+    ]);
+
+    $form->get('transferInfo')->setAttributes([
+        'placeholder' => $this->translate('备注')
+    ]);
+
+    ?>
+    <?php echo $this->form()->openTag($form); ?>
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+
+        <h1 class="pull-right">
+            <a href="<?php echo $this->url('stock-transfer');?>" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> <?php echo $this->translate('返回调拨列表'); ?></a>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> <?php echo $this->translate('提交调拨'); ?></button>
+            <?php echo $this->HelpUrl('stockTransfer'); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo (isset($orderInfo) ? $this->translate('编辑调拨单') : $this->translate('添加调拨单')); ?></h3>
+                    </div>
+
+                    <div class="box-body">
+                        <?php echo $this->formElementErrors($form->get('dberp_csrf'), ['class'=>'error-message']); ?>
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('调拨单号'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('transferSn')); ?>
+                                    <?php echo $this->formElementErrors($form->get('transferSn'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('调出仓库'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('transferOutWarehouseId')); ?>
+                                    <?php echo $this->formElementErrors($form->get('transferOutWarehouseId'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('调入仓库'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('transferInWarehouseId')); ?>
+                                    <?php echo $this->formElementErrors($form->get('transferInWarehouseId'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('调拨时间'); ?><span class="must_add_value">*</span>
+                                    <?php echo $this->formElement($form->get('transferAddTime')); ?>
+                                    <?php echo $this->formElementErrors($form->get('transferAddTime'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-8 form-group">
+                                <div class="col-sm-12">
+                                    <?php echo $this->translate('备注'); ?>
+                                    <?php echo $this->formElement($form->get('transferInfo')); ?>
+                                    <?php echo $this->formElementErrors($form->get('transferInfo'), ['class'=>'error-message']); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php
+                        $goodsForm = $this->goodsForm;
+                        ?>
+                        <div class="box-header">
+                            <h4 class="box-title"><?php echo $this->translate('调拨商品'); ?></h4>
+                            &nbsp;&nbsp;
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" onclick="addMoreGoods();"><i class="fa fa-plus"></i> <?php echo $this->translate('点击添加商品'); ?></button>
+                            <?php echo $this->formElementErrors($goodsForm->get('goodsId'), ['class'=>'error-message']); ?>
+                            <?php echo $this->formElementErrors($goodsForm->get('transferGoodsNum'), ['class'=>'error-message']); ?>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th width="15%"><?php echo $this->translate('商品编号'); ?></th>
+                                    <th><?php echo $this->translate('商品名称'); ?></th>
+                                    <th width="15%"><?php echo $this->translate('商品规格'); ?></th>
+                                    <th width="8%"><?php echo $this->translate('单位'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('仓库库存数'); ?></th>
+                                    <th width="10%"><?php echo $this->translate('调拨数量'); ?></th>
+                                    <th width="12%"><?php echo $this->translate('操作'); ?></th>
+                                </tr>
+                                </thead>
+                                <tbody id="t-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <?php echo $this->formElement($form->get('dberp_csrf')); ?>
+                        <button type="submit" class="btn btn-primary col-md-offset-4"><i class="fa fa-check"></i> <?php echo $this->translate('提交调拨'); ?></button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <?php echo $this->form()->closeTag(); ?>
+
+    <div class="modal fade" id="modalDefault">
+        <div class="modal-dialog" style="width: 800px;" id="addGoodsListBody">
+
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#<?php echo $form->getName(); ?>").validate({
+            rules: {
+                transferSn: {
+                    required: true
+                },
+                transferOutWarehouseId: {
+                    required: true,
+                    min: 1
+                },
+                transferInWarehouseId: {
+                    required: true,
+                    min: 1
+                },
+                transferAddTime: {
+                    required: true
+                }
+            },
+            messages: {
+                transferSn: {
+                    required: "<?php echo $this->translate('调拨单号不能为空！'); ?>"
+                },
+                transferOutWarehouseId: {
+                    required: "<?php echo $this->translate('请选择调出仓库！'); ?>",
+                    min: "<?php echo $this->translate('请选择调出仓库！'); ?>"
+                },
+                transferInWarehouseId: {
+                    required: "<?php echo $this->translate('请选择调入仓库！'); ?>",
+                    min: "<?php echo $this->translate('请选择调入仓库！'); ?>"
+                },
+                transferAddTime: {
+                    required: "<?php echo $this->translate('调拨时间不能为空！'); ?>"
+                }
+            },
+            submitHandler: function(form) {
+                if(typeof($("input[name='goodsId[]']").val()) == "undefined") {
+                    layer.msg('<?php echo $this->translate('请添加调拨商品！'); ?>');
+                    return false;
+                }
+                form.submit();
+            }
+        });
+    });
+
+    function addSelectGoods(goodsId) {
+        if(goodsId == '') {
+            layer.msg('<?php echo $this->translate('请填写需要添加的商品名称！'); ?>');
+        } else {
+            var insertState = true;
+            $("input[name='goodsId[]']").each(function () {
+                if($(this).val() == goodsId) {
+                    insertState = false;
+                }
+            });
+            if(!insertState) {
+                layer.msg('<?php echo $this->translate('该商品已经添加！'); ?>');
+                return false;
+            }
+
+            $.post("<?php echo $this->url('goods', ['action' => 'goodsIdSearch']);?>", {goodsId: goodsId, warehouseId: $('#transferOutWarehouseId').val()}, function (data) {
+                if(data.state == 'ok') {
+
+                    var htmlStr = '<tr id="tr_id_'+data.result.goodsId+'">';
+                    htmlStr += '<td><input type="hidden" name="goodsId[]" value="'+data.result.goodsId+'">'+data.result.goodsNumber+'</td>';
+                    htmlStr += '<td>'+data.result.goodsName+'</td>';
+                    htmlStr += '<td>'+data.result.goodsSpec+'</td>';
+                    htmlStr += '<td>'+data.result.unitName+'</td>';
+                    htmlStr += '<td id="stock_transfer_pre_goods_num_'+data.result.goodsId+'">'+data.result.warehouseGoodsNum+'</td>';
+                    htmlStr += '<td><input type="number" min="1" oninput="checkGoodsNum('+data.result.goodsId+');" id="transfer_goods_num_'+data.result.goodsId+'" name="transferGoodsNum[]" class="form-control" value="1"></td>';
+                    htmlStr += '<td><button type="button" onclick="deleteGoods('+data.result.goodsId+');" class="btn btn-danger"><?php echo $this->translate('删除'); ?></button></td>';
+                    htmlStr += '</tr>';
+
+                    $('#t-body').append(htmlStr);
+
+                    $('#goodsSearch').val('');
+                    $('#selectedGoodsId').val('');
+                }
+            })
+        }
+    }
+
+    function checkGoodsNum(goodsId) {
+        if(parseInt($('#stock_transfer_pre_goods_num_'+goodsId).html()) < $('#transfer_goods_num_'+goodsId).val()) {
+            layer.msg('<?php echo $this->translate('超过调出库存！'); ?>');
+            $('#transfer_goods_num_'+goodsId).val($('#stock_transfer_pre_goods_num_'+goodsId).html());
+        }
+    }
+
+    function deleteGoods(goodsId) {
+        $('#tr_id_'+goodsId).remove();
+        sumAmount();
+    }
+
+    function addMoreGoods() {
+        $('#modalDefault').modal('show');
+        dberpAjaxList('<?php echo $this->url('goods', ['action' => 'ajaxGoodsSearch']);?>', 'addGoodsListBody');
+    }
+
+    function addMoreSelectGoods() {
+        $("input[name='selectGoodsId[]']").each(function () {
+            if(this.checked) {
+                addSelectGoods(this.value);
+            }
+        });
+        $('#modalDefault').modal('hide');
+    }
+
+    function searchGoods() {
+        dberpAjaxList('<?php echo $this->url('goods', ['action' => 'ajaxGoodsSearch']);?>?searchGoodsName='+$('#searchGoodsName').val(), 'addGoodsListBody');
+    }
+
+    $('#transferOutWarehouseId').on('change', function(){
+        if($(this).val() > 0) {
+            var warehouseId = $(this).val();
+            $("input[name='goodsId[]']").each(function () {
+                var goodsId = this.value;
+                $.post("<?php echo $this->url('goods', ['action' => 'goodsIdSearch']);?>", {goodsId: goodsId, warehouseId: warehouseId}, function (data) {
+                    if(data.state == 'ok') {
+                        $('#stock_transfer_pre_goods_num_'+ goodsId).html(data.result.warehouseGoodsNum);
+
+                        if(data.result.warehouseGoodsNum > 0 && data.result.warehouseGoodsNum < $('#transfer_goods_num_'+goodsId).val()) {
+                            $('#transfer_goods_num_'+goodsId).val(data.result.warehouseGoodsNum);
+                        }
+                    }
+                });
+            })
+        }
+    });
+
+    laydate.render({elem: '#transferAddTime'<?php if(!isset($this->stockTransferInfo)) { ?>, value: '<?php echo date("Y-m-d", time()); ?>'<?php } ?>});
+</script>

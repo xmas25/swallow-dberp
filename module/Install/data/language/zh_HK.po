@@ -1,0 +1,258 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DBShop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-26 18:58+0800\n"
+"PO-Revision-Date: 2021-12-26 18:59+0800\n"
+"Last-Translator: Baron <baron@loongdom."
+"cn>\n"
+"Language-Team: DBShop <baron@loongdom."
+"cn>\n"
+"Language: zh_HK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: src/Controller/InstallController.php:74
+msgid "GD库未安装"
+msgstr "GD庫未安裝"
+
+#: src/Validator/DatabaseValidator.php:32
+msgid "这不是一个标准输入值"
+msgstr "這不是一個標準輸入值"
+
+#: src/Validator/DatabaseValidator.php:33
+msgid ""
+"数据库连接失败，请检查您的数据库连接信息"
+msgstr ""
+"資料庫連接失敗，請檢查您的資料庫連接資訊"
+
+#: src/Validator/DatabaseValidator.php:34
+msgid ""
+"InnoDB类型必须开启，DBShop系统才能正常安"
+"装，有些环境默认没有开启InnoDB，请手动进行"
+"开启"
+msgstr ""
+"InnoDB類型必須開啟，DBShop系統才能正常安"
+"裝，有些環境預設沒有開啟InnoDB，請手動進行"
+"開啟"
+
+#: view/install/install/index.phtml:44
+msgid ""
+"默认安装简体中文语言包，需要其他语言包支"
+"持，安装完毕后，可到后台在线安装其他语言"
+"包。"
+msgstr ""
+"默認安裝簡體中文語言包，需要其他語言包支"
+"援，安裝完畢后，可到後台在線安裝其他語言"
+"包。"
+
+#: view/install/install/index.phtml:46
+msgid "同意协议，继续安装"
+msgstr "同意協議,繼續安裝"
+
+#: view/install/install/index.phtml:47
+msgid "不同意协议，取消安装"
+msgstr "不同意協定,取消安裝"
+
+#: view/install/install/install-finish.phtml:5
+msgid "DBShop系统安装完成"
+msgstr "DBShop系統安裝完成"
+
+#: view/install/install/install-finish.phtml:11
+#: view/install/install/install-shop.phtml:90
+msgid "网站名称"
+msgstr "網站名稱"
+
+#: view/install/install/install-finish.phtml:15
+msgid "系统管理员帐号"
+msgstr "系統管理員帳號"
+
+#: view/install/install/install-finish.phtml:19
+msgid "系统管理员密码"
+msgstr "系統管理員密碼"
+
+#: view/install/install/install-finish.phtml:25
+msgid "点击查看系统前台"
+msgstr "點擊查看系統前臺"
+
+#: view/install/install/install-finish.phtml:26
+msgid "点击查看系统后台"
+msgstr "點擊查看系統後台"
+
+#: view/install/install/install-shop.phtml:10
+msgid "DBShop系统安装信息填写"
+msgstr "DBShop系統安裝資訊填寫"
+
+#: view/install/install/install-shop.phtml:16
+msgid "数据库服务器"
+msgstr "資料庫伺服器"
+
+#: view/install/install/install-shop.phtml:23
+msgid "数据库名称"
+msgstr "資料庫名稱"
+
+#: view/install/install/install-shop.phtml:27
+msgid "数据库需要提前建立，系统不会自动创建"
+msgstr "資料庫需要提前建立,系統不會自動創建"
+
+#: view/install/install/install-shop.phtml:31
+msgid "数据库用户名"
+msgstr "資料庫使用者名"
+
+#: view/install/install/install-shop.phtml:38
+msgid "数据库密码"
+msgstr "資料庫密碼"
+
+#: view/install/install/install-shop.phtml:45
+msgid "数据库连接端口"
+msgstr "資料庫連接埠"
+
+#: view/install/install/install-shop.phtml:53
+msgid "管理员信息"
+msgstr "管理員資訊"
+
+#: view/install/install/install-shop.phtml:57
+msgid "管理员账号"
+msgstr "管理員賬號"
+
+#: view/install/install/install-shop.phtml:64
+msgid "管理员邮箱"
+msgstr "管理員郵箱"
+
+#: view/install/install/install-shop.phtml:71
+msgid "管理员密码"
+msgstr "管理員密碼"
+
+#: view/install/install/install-shop.phtml:78
+msgid "再次输入管理员密码"
+msgstr "再次輸入管理員密碼"
+
+#: view/install/install/install-shop.phtml:86
+msgid "站点信息"
+msgstr "網站資訊"
+
+#: view/install/install/install-shop.phtml:97
+msgid "所在时区"
+msgstr "所在時區"
+
+#: view/install/install/install-shop.phtml:104
+msgid "安装演示数据"
+msgstr "安裝演示數據"
+
+#: view/install/install/install-shop.phtml:106
+msgid "安装"
+msgstr "安裝"
+
+#: view/install/install/install-shop.phtml:111
+msgid "安装提示"
+msgstr "安裝提示"
+
+#: view/install/install/install-shop.phtml:112
+#, php-format
+msgid ""
+"当数据库中已经存在DBShop系统数据表时，安装"
+"时会删除已有的DBShop数据表，重新写入DBShop"
+"初始化数据表。%s安装操作对同一数据库中的其"
+"他系统数据表不会产生任何影响%s。"
+msgstr ""
+"當資料庫中已經存在DBShop系統數據表時,安裝"
+"時會刪除已有的DBShop數據表,重新寫入DBShop"
+"初始化數據表。 %s安裝操作對同一資料庫中的"
+"其他系統數據表不會產生任何影響%s。"
+
+#: view/install/install/install-shop.phtml:117
+msgid "点击安装"
+msgstr "點擊安裝"
+
+#: view/install/install/install-shop.phtml:157
+msgid "数据库服务器地址不能为空!"
+msgstr "資料庫伺服器位址不能為空!"
+
+#: view/install/install/install-shop.phtml:160
+msgid "数据库名称不能为空!"
+msgstr "資料庫名稱不能為空!"
+
+#: view/install/install/install-shop.phtml:163
+msgid "数据库用户名不能为空!"
+msgstr "資料庫使用者名不能為空!"
+
+#: view/install/install/install-shop.phtml:166
+msgid "数据库密码不能为空!"
+msgstr "資料庫密碼不能為空!"
+
+#: view/install/install/install-shop.phtml:169
+msgid "数据库端口不能为空!"
+msgstr "資料庫埠不能為空!"
+
+#: view/install/install/install-shop.phtml:172
+msgid "管理员账号不能为空!"
+msgstr "管理員帳號不能為空!"
+
+#: view/install/install/install-shop.phtml:175
+msgid "管理员密码不能为空!"
+msgstr "管理員密碼不能為空!"
+
+#: view/install/install/install-shop.phtml:176
+msgid "管理员密码最少6位!"
+msgstr "管理員密碼最少6位!"
+
+#: view/install/install/install-shop.phtml:179
+msgid "确认密码不能为空!"
+msgstr "確認密碼不能為空!"
+
+#: view/install/install/install-shop.phtml:180
+msgid "两次输入的密码不同!"
+msgstr "兩次輸入的密碼不同!"
+
+#: view/install/install/install-shop.phtml:183
+msgid "网站名称不能为空!"
+msgstr "網站名稱不能為空!"
+
+#: view/install/install/next-step.phtml:5
+msgid "DBShop安装环境检测"
+msgstr "DBShop安裝環境檢測"
+
+#: view/install/install/next-step.phtml:11
+msgid "服务器系统"
+msgstr "伺服器系統"
+
+#: view/install/install/next-step.phtml:12
+msgid "WEB服务器"
+msgstr "WEB伺服器"
+
+#: view/install/install/next-step.phtml:15
+msgid "PHP版本"
+msgstr "PHP版本"
+
+#: view/install/install/next-step.phtml:16
+msgid "GD库"
+msgstr "GD庫"
+
+#: view/install/install/next-step.phtml:20
+msgid "目录权限"
+msgstr "目錄許可權"
+
+#: view/install/install/next-step.phtml:41
+msgid "扩展依赖性检查"
+msgstr "擴展依賴性檢查"
+
+#: view/install/install/next-step.phtml:64
+msgid "返回上一步"
+msgstr "返回上一步"
+
+#: view/install/install/next-step.phtml:65
+msgid "继续下一步"
+msgstr "繼續下一步"
+
+#: view/install/install/next-step.phtml:67
+msgid ""
+"请设置满足条件的安装环境后，点此按钮刷新"
+msgstr ""
+"請設置滿足條件的安裝環境后,點此按鈕刷新"

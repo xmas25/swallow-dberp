@@ -1,0 +1,25 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <?php echo $this->partial('layout/breadcrumb'); ?>
+        <h1 class="pull-right">
+            <?php echo $this->HelpUrl('erpUpdate'); ?>
+        </h1>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box shop-box">
+                    <div class="box-body">
+                        <blockquote>
+                            <p class="text-green"><?php echo $this->translate('查看系统更新包及在线更新服务，需要进行服务绑定后，才能进行操作。官方推荐，永久免费。'); ?> <a href="<?php echo $this->url('service-bind'); ?>" class="btn btn-sm btn-success"><?php echo $this->translate('点击进行服务绑定'); ?></a></p>
+                            <p class="text-blue"><?php echo $this->translate('暂时不想进行服务绑定，要下载更新包到本地。'); ?> <a href="https://store.loongdom.cn/shop-goods/index/30" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> <?php echo $this->translate('点击下载更新包手动更新'); ?></a></p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
